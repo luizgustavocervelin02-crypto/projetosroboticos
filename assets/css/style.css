@@ -1,12 +1,15 @@
 :root {
-    --primary-red: #FF3B3B;
-    --primary-red-dark: #cc2f2f;
-    --primary-green: #22C55E;
-    --primary-green-dark: #16a34a;
-    --bg-cream: #FAF9F6;
-    --text-dark: #1F2937;
-    --text-muted: #4B5563;
-    --white: #FFFFFF;
+    --primary-red: #ef4444;
+    --primary-orange: #f97316;
+    --primary-purple: #818cf8;
+    /* Soft Purple */
+    --card-blue: #dbeafe;
+    --card-pink: #fce7f3;
+    --card-cream: #fef3c7;
+    --card-green: #d1fae5;
+    --text-dark: #111827;
+    --text-muted: #4b5563;
+    --white: #ffffff;
     --font-heading: 'Poppins', sans-serif;
     --font-body: 'Inter', sans-serif;
 }
@@ -19,200 +22,376 @@
 
 body {
     font-family: var(--font-body);
-    background-color: var(--bg-cream);
+    background-color: var(--white);
     color: var(--text-dark);
     line-height: 1.6;
     overflow-x: hidden;
 }
 
 .container {
-    max-width: 1100px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
 /* Announcement Banner */
 .announcement-banner {
-    background: linear-gradient(90deg, #E63946, #F1FAEE, #A8DADC);
-    /* Ajustado conforme screenshot */
-    background: linear-gradient(90deg, #ff4c22, #ffb000);
-    /* Real match from screenshot */
+    background: linear-gradient(90deg, #ef4444, #f97316);
     color: white;
     text-align: center;
     padding: 12px 0;
-    font-size: 1rem;
-    font-weight: 800;
+    font-size: 0.9rem;
+    font-weight: 700;
     position: sticky;
     top: 0;
     z-index: 1000;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
 }
 
 /* Hero Section */
 .hero {
-    background: #ffffff url('../images/hero-bg.webp') center/cover no-repeat;
     padding: 60px 0;
     text-align: center;
+    background: radial-gradient(circle at top, #f8f9fa, #ffffff);
 }
 
-.benefits-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    margin: 30px 0;
-}
-
-.benefit-item {
-    background: white;
-    padding: 10px 20px;
-    border-radius: 10px;
-    font-weight: 600;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-}
-
-/* Bonus Section */
-.bonuses {
-    padding: 80px 0;
-    background: #ffffff;
-    text-align: center;
-}
-
-.bonus-intro {
-    background: #F9C74F;
-    /* Yellow */
-    padding: 20px;
-    border-radius: 15px;
+.hero-top-text {
+    color: #db2777;
+    /* Deep Pink/Purple */
     font-weight: 800;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.hero h1 {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.hero h1 .highlight {
+    color: #ef4444;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+.hero-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
     margin-bottom: 40px;
 }
 
-.bonus-card {
-    background: #2D6A4F;
-    /* Dark Green matching screenshot */
-    color: white;
-    padding: 40px;
-    border-radius: 30px;
-    margin-bottom: 30px;
+.hero-card {
+    padding: 30px 20px;
+    border-radius: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
 }
 
-.bonus-card h3 {
-    font-size: 2rem;
-    margin: 20px 0;
+.hero-card:hover {
+    transform: translateY(-5px);
 }
 
-.bonus-card img {
-    max-width: 300px;
-    border-radius: 15px;
+.card-blue {
+    background-color: var(--card-blue);
 }
 
-/* Projects List */
-.projects-list {
+.card-purple {
+    background-color: var(--card-pink);
+}
+
+.card-cream {
+    background-color: var(--card-cream);
+}
+
+.card-green {
+    background-color: var(--card-green);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.hero-card p {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #1f2937;
+}
+
+.hero-checkmarks {
     display: flex;
-    flex-direction: column;
-    gap: 15px;
-    max-width: 500px;
-    margin: 0 auto;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    font-weight: 600;
+    color: #059669;
 }
 
-.project-card {
-    background: #F9FAFB;
+.floating-robot {
+    max-width: 400px;
+    width: 100%;
+    margin-bottom: 40px;
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.cta-button-red {
+    display: inline-block;
+    background: #ef4444;
+    color: white;
+    padding: 20px 50px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 1.4rem;
+    text-decoration: none;
+    box-shadow: 0 10px 20px rgba(239, 68, 68, 0.3);
+    transition: all 0.3s ease;
+}
+
+.cta-button-red:hover {
+    background: #dc2626;
+    transform: scale(1.05);
+}
+
+/* Project List Section */
+.gallery {
+    padding: 80px 0;
+    background: linear-gradient(180deg, #f0f7ff, #ffffff);
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 50px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.project-item {
+    background: white;
     padding: 20px;
-    border-radius: 15px;
+    border-radius: 20px;
     display: flex;
     align-items: center;
     gap: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
     font-weight: 700;
-    font-size: 1.2rem;
-    text-align: left;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    font-size: 1.1rem;
 }
 
-.project-card span {
-    background: #E0B0FF;
-    /* Soft Purple */
-    color: #8A2BE2;
-    /* Darker Purple */
-    width: 30px;
-    height: 30px;
+.checkmark-circle {
+    background: #8b5cf6;
+    /* Purple Circle */
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
-    font-size: 1rem;
+    font-size: 0.9rem;
+    flex-shrink: 0;
 }
 
-/* Offer Box */
-.offer-box {
-    background: #D90429;
-    /* Deep Red */
+.bonus-highlight {
+    background: #8b5cf6;
     color: white;
-    padding: 40px;
-    border-radius: 20px;
-    text-align: center;
-    max-width: 600px;
-    margin: 40px auto;
 }
 
-.offer-box h3 {
-    font-size: 1.5rem;
+.bonus-highlight .checkmark-circle {
+    background: white;
+    color: #8b5cf6;
+}
+
+/* Bonus Sections */
+.bonuses-wrapper {
+    margin-top: 50px;
+}
+
+.bonus-header {
+    background: #111827;
+    color: #fbbf24;
+    /* Yellow text */
+    padding: 40px 20px;
+    text-align: center;
+    font-weight: 800;
+}
+
+.bonus-section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.bonus-tag {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 5px 15px;
+    border-radius: 10px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.bonus-section h3 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+.bonus-section p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 30px;
+}
+
+.bonus-green {
+    background: #059669;
+    color: white;
+}
+
+.bonus-pink {
+    background: #db2777;
+    color: white;
+}
+
+.bonus-blue {
+    background: #2563eb;
+    color: white;
+}
+
+.bonus-magenta {
+    background: #9d174d;
+    color: white;
+}
+
+.bonus-green-alt {
+    background: #15803d;
+    color: white;
+}
+
+.bonus-image-placeholder img {
+    max-width: 350px;
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Offer Section */
+.offer {
+    padding: 100px 0;
+    background: #f8fafc;
+    text-align: center;
+}
+
+.guarantee-section {
+    margin-bottom: 60px;
+}
+
+.guarantee-seal {
+    max-width: 180px;
+    margin-bottom: 20px;
+}
+
+.guarantee-section h3 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #15803d;
+}
+
+.price-card {
+    background: #ef4444;
+    /* Red Box */
+    color: white;
+    padding: 60px 40px;
+    border-radius: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.savings {
+    font-weight: 600;
+    font-size: 1.1rem;
     margin-bottom: 20px;
     text-transform: uppercase;
 }
 
 .price-highlight {
-    font-size: 4rem;
+    font-size: 5rem;
     font-weight: 900;
-    color: #FFD700;
-    /* Gold/Yellow */
-    margin: 10px 0;
+    color: #fbbf24;
+    /* Yellow Price */
+    margin: 20px 0;
     font-family: var(--font-heading);
 }
 
-.cta-button-final {
+.cta-button-green {
     display: block;
-    background: #F9C74F;
-    /* Yellow */
-    color: #1F2937;
+    background: #10b981;
+    /* Green Button */
+    color: white;
     padding: 25px;
-    border-radius: 15px;
+    border-radius: 20px;
     font-weight: 800;
     text-decoration: none;
-    font-size: 1.2rem;
-    margin: 30px 0;
-    transition: transform 0.2s;
-    box-shadow: 0 10px 0 #C9A227;
+    font-size: 1.3rem;
+    transition: transform 0.2s ease;
+    box-shadow: 0 10px 0 #059669;
 }
 
-.cta-button-final:active {
+.cta-button-green:active {
     transform: translateY(5px);
-    box-shadow: 0 5px 0 #C9A227;
+    box-shadow: 0 5px 0 #059669;
 }
 
-.seal {
-    max-width: 120px;
-}
-
-/* FAQ Section */
+/* FAQ Accordion */
 .faq {
     padding: 80px 0;
 }
 
-.faq h2 {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
 .accordion-item {
-    border-bottom: 1px solid #e5e7eb;
+    border: 1px solid #e5e7eb;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    overflow: hidden;
 }
 
 .accordion-header {
     width: 100%;
-    padding: 20px;
-    background: none;
+    padding: 25px;
+    background: white;
     border: none;
     text-align: left;
     font-weight: 700;
@@ -220,21 +399,13 @@ body {
     cursor: pointer;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-}
-
-.accordion-header::after {
-    content: '+';
-    font-size: 1.5rem;
-}
-
-.accordion-item.active .accordion-header::after {
-    content: '-';
 }
 
 .accordion-content {
-    padding: 0 20px 20px;
+    padding: 0 25px 25px;
     display: none;
+    background: white;
+    color: var(--text-muted);
 }
 
 .accordion-item.active .accordion-content {
@@ -243,10 +414,10 @@ body {
 
 /* Footer */
 footer {
-    padding: 40px 0;
-    background: var(--text-dark);
-    color: white;
+    padding: 60px 0;
+    background: #f1f5f9;
     text-align: center;
+    border-top: 1px solid #e2e8f0;
 }
 
 @media (max-width: 768px) {
@@ -254,16 +425,11 @@ footer {
         font-size: 2.2rem;
     }
 
-    .hero .subheadline {
-        font-size: 1.1rem;
+    .price-highlight {
+        font-size: 3.5rem;
     }
 
-    .benefits-list {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .qualification .container {
-        flex-direction: column;
+    .bonus-section h3 {
+        font-size: 1.8rem;
     }
 }
