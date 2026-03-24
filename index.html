@@ -2,258 +2,649 @@
 <html lang="pt-BR">
 
 <head>
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-XXXXXXX');</script>
+  <!-- End Google Tag Manager -->
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
   <title>Guia dos Projeto Robóticos - Edição Especial</title>
-  <link rel="stylesheet" href="assets/css/base.css">
-  <link rel="stylesheet" href="assets/css/main.css">
+  <meta name="description"
+    content="Transforme o tédio em diversão! Crie brinquedos incríveis em casa com seus filhos usando materiais simples. Guia completo com atividades educativas e divertidas. Acesso imediato por apenas R$ 19,90.">
+  <meta property="og:title" content="Guia Exclusivo de Brinquedos Caseiros para Crianças">
+  <meta property="og:description"
+    content="Atividades simples, educativas e divertidas para pais que querem momentos especiais com seus filhos, sem gastar muito.">
+  <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
-    rel="stylesheet">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  <link rel="preload" as="image" href="assets/images/hero-bg.webp" fetchpriority="high">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="assets/css/index-production-1.css" media="all">
+  <link rel="stylesheet" href="assets/css/index-production-2.css">
   <style>
-    .hero-bg-custom {
-      background-image: url('assets/images/hero-bg.webp');
-      background-size: cover;
-      background-position: center;
+    /* ── Marquee animations (required by React-rendered DOM) ── */
+    @keyframes marquee {
+      0% {
+        transform: translateX(0)
+      }
+
+      100% {
+        transform: translateX(-50%)
+      }
+    }
+
+    @keyframes marquee2 {
+      0% {
+        transform: translateX(-50%)
+      }
+
+      100% {
+        transform: translateX(0)
+      }
+    }
+
+    @keyframes marquee-fast {
+      0% {
+        transform: translateX(0)
+      }
+
+      100% {
+        transform: translateX(-50%)
+      }
+    }
+
+    .animate-marquee {
+      animation: marquee 30s linear infinite;
+    }
+
+    .animate-marquee2 {
+      animation: marquee2 30s linear infinite;
+    }
+
+    .animate-marquee-fast {
+      animation: marquee-fast 15s linear infinite;
+    }
+
+    /* ── Accordion ── */
+    [data-state=open] .accordion-content {
+      display: block;
+    }
+
+    [data-state=closed] .accordion-content {
+      display: none;
+    }
+
+    [data-state=open] .accordion-chevron {
+      transform: rotate(180deg);
+    }
+
+    .accordion-chevron {
+      transition: transform 200ms;
+    }
+
+    /* ── Hover utilities ── */
+    .hover-elevate:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .12);
+    }
+
+    .active-elevate-2:active {
+      transform: translateY(1px) scale(.99);
     }
   </style>
 </head>
 
-<body class="min-h-screen bg-background text-foreground antialiased anticons-scrollbar-hide">
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+
   <div id="root">
-    <div class="min-h-screen">
-      <!-- Top Banner -->
+    <!-- ── Notifications placeholder ── -->
+    <div role="region" aria-label="Notifications (F8)" tabindex="-1" style="pointer-events:none;">
+      <ol tabindex="-1"
+        class="fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]">
+      </ol>
+    </div>
+
+    <div class="min-h-screen bg-background">
+
+      <!-- ──────────────────────────────── URGENCY BAR ──────────────────────── -->
       <div
-        class="fixed top-0 left-0 right-0 z-50 h-11 bg-gradient-to-r from-primary to-secondary flex items-center justify-center border-b border-black/10">
-        <p class="text-white text-[10px] md:text-sm font-black uppercase tracking-widest px-4 text-center leading-none">
-          OFERTA VÁLIDA SOMENTE HOJE – 24/03/2026
+        class="fixed top-0 left-0 right-0 z-50 h-12 bg-gradient-to-r from-primary to-secondary flex items-center justify-center px-4"
+        data-testid="bar-urgency">
+        <p class="text-primary-foreground font-heading font-bold text-sm md:text-base text-center">
+          OFERTA VÁLIDA SOMENTE <span class="animate-pulse inline-block">HOJE</span> – 24/03/2026
         </p>
       </div>
 
-      <!-- Hero Section -->
-      <section class="mt-11 pt-8 pb-14 relative overflow-hidden hero-bg-custom border-b-2 border-black/5" id="hero">
-        <div class="max-w-4xl mx-auto px-5 text-center relative z-10">
-          <p class="text-primary font-black text-[10px] md:text-xs tracking-[0.2em] mb-3 uppercase">Guia dos Projetos
-            Robóticos</p>
-          <h1 class="text-4xl md:text-5xl lg:text-7xl font-black leading-[1.1] mb-6 tracking-tight">
-            Transforme materiais simples em projetos de <span class="text-primary">robótica</span>
-          </h1>
-          <p class="text-gray-600 text-sm md:text-lg mb-10 max-w-3xl mx-auto leading-relaxed font-medium">
-            Projetos simples, criativos e gravados em vídeo para você fazer em casa ou na escola usando materiais fáceis
-            de encontrar.
-          </p>
-
-          <!-- Features Cards -->
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-12 text-left max-w-2xl mx-auto">
-            <div class="bg-blue-500/10 border border-blue-500/20 p-4 rounded-xl flex items-center shadow-sm">
-              <span class="text-2xl mr-4">🤖</span>
-              <span class="font-bold text-xs md:text-sm leading-tight">Projetos de robótica passo a passo em
-                vídeo</span>
-            </div>
-            <div class="bg-primary/10 border border-primary/20 p-4 rounded-xl flex items-center shadow-sm">
-              <span class="text-2xl mr-4">🧠</span>
-              <span class="font-bold text-xs md:text-sm leading-tight">Estimula lógica, criatividade e raciocínio</span>
-            </div>
-            <div class="bg-yellow-400/10 border border-yellow-400/20 p-4 rounded-xl flex items-center shadow-sm">
-              <span class="text-2xl mr-4">🏠</span>
-              <span class="font-bold text-xs md:text-sm leading-tight">Ideal para fazer em casa ou na escola</span>
-            </div>
-            <div class="bg-green-500/10 border border-green-500/20 p-4 rounded-xl flex items-center shadow-sm">
-              <span class="text-2xl mr-4">👨‍👩‍�</span>
-              <span class="font-bold text-xs md:text-sm leading-tight">Atividades que conectam adultos e crianças</span>
-            </div>
-          </div>
-
-          <!-- Hero CTA -->
-          <div class="flex flex-col items-center space-y-5 mb-14">
-            <div
-              class="flex space-x-1 text-success font-black text-[9px] uppercase tracking-tighter decoration-1 underline-offset-4 decoration-success/30">
-              <span>✅ ACESSO IMEDIATO</span>
-              <span>•</span>
-              <span>✅ CONTEÚDO VITALÍCIO</span>
-              <span>•</span>
-              <span>✅ ATUALIZAÇÕES</span>
-            </div>
-            <a href="https://pay.hotmart.com"
-              class="bg-primary hover:bg-primary/90 text-white font-black py-5 px-10 rounded-2xl text-xl md:text-2xl shadow-xl shadow-primary/20 transition transform hover:scale-105 active:scale-95 leading-none w-full md:w-auto">
-              QUERO ACESSAR AGORA
-            </a>
-          </div>
-
-          <!-- Video Container -->
-          <div
-            class="relative max-w-lg mx-auto bg-black rounded-[2.5rem] p-1 shadow-2xl overflow-hidden group border-4 border-black">
-            <div
-              class="absolute top-5 right-5 bg-primary text-white text-[10px] font-black px-3 py-1.5 rounded-lg z-20 shadow-lg tracking-wider animate-pulse">
-              +100 PROJETOS
-            </div>
-            <div class="aspect-[9/16] relative bg-neutral-900 group-hover:opacity-90 transition">
-              <img src="assets/images/robot-main.png" alt="Video Player" class="w-full h-full object-cover opacity-70">
-              <div class="absolute inset-0 flex items-center justify-center">
+      <!-- ──────────────────────────────── HERO ────────────────────────────── -->
+      <section class="mt-12 pt-6 pb-12 md:pb-16 lg:pb-20 relative overflow-hidden bg-[#f8f8f8]"
+        data-testid="section-hero"
+        style="background-image:url('assets/images/hero-bg.webp');background-size:cover;background-position:center center;background-repeat:no-repeat;">
+        <div class="container mx-auto px-4 max-w-4xl">
+          <div class="space-y-8 md:space-y-16 text-center">
+            <div class="space-y-4 md:space-y-6">
+              <span class="text-primary/70 font-medium text-xs md:text-sm tracking-[0.2em] uppercase"
+                data-testid="text-product-name">Guia dos Projetos Robóticos</span>
+              <h1
+                class="font-heading font-bold text-3xl md:text-6xl lg:text-7xl leading-[1.2] text-foreground max-w-3xl mx-auto"
+                data-testid="text-hero-promise">
+                Transforme materiais simples em projetos de <span class="text-primary">robótica</span>
+              </h1>
+              <p class="text-muted-foreground/85 text-base md:text-xl max-w-2xl mx-auto leading-relaxed font-bold"
+                data-testid="text-hero-complement">
+                Projetos simples, criativos e gravados em vídeo para você fazer em casa usando materiais fáceis de
+                encontrar.
+              </p>
+              <div class="max-w-2xl mx-auto pt-6 grid grid-cols-1 md:grid-cols-2 gap-3 text-left">
                 <div
-                  class="w-20 h-20 bg-primary/90 rounded-full flex items-center justify-center text-white text-3xl shadow-2xl group-hover:scale-110 transition cursor-pointer">
-                  ▶
+                  class="flex items-center gap-3 bg-blue-500/10 p-3 rounded-lg border border-blue-500/20 hover-elevate transition-all">
+                  <span class="flex-shrink-0 text-2xl">🤖</span><span
+                    class="text-foreground/90 font-bold text-sm">Projetos de robótica passo a passo em vídeo</span>
+                </div>
+                <div
+                  class="flex items-center gap-3 bg-purple-500/10 p-3 rounded-lg border border-purple-500/20 hover-elevate transition-all">
+                  <span class="flex-shrink-0 text-2xl">🧠</span><span
+                    class="text-foreground/90 font-bold text-sm">Estimula lógica, criatividade e raciocínio</span></div>
+                <div
+                  class="flex items-center gap-3 bg-orange-500/10 p-3 rounded-lg border border-orange-500/20 hover-elevate transition-all">
+                  <span class="flex-shrink-0 text-2xl">🏠</span><span class="text-foreground/90 font-bold text-sm">Ideal
+                    para fazer em casa ou na escola</span></div>
+                <div
+                  class="flex items-center gap-3 bg-green-500/10 p-3 rounded-lg border border-green-500/20 hover-elevate transition-all">
+                  <span class="flex-shrink-0 text-2xl">👨‍👩‍👧</span><span
+                    class="text-foreground/90 font-bold text-sm">Atividades que conectam adultos e crianças</span></div>
+              </div>
+              <div
+                class="pt-2 flex flex-wrap justify-center gap-x-4 gap-y-1 text-[10px] md:text-xs text-muted-foreground/60 font-medium uppercase tracking-wider"
+                data-testid="text-trust-badges">
+                <span>✅ Acesso imediato</span><span class="hidden md:inline">•</span><span>Conteúdo
+                  vitalício</span><span class="hidden md:inline">•</span><span>Atualizações inclusas</span>
+              </div>
+            </div>
+
+            <!-- CTA hero -->
+            <div class="pt-2 md:pt-4">
+              <a href="https://checkout.projetogeniobrasil.com.br/VCCL1O8SCOGT" rel="noopener noreferrer"
+                class="inline-block w-full max-w-[90vw] md:max-w-none">
+                <button
+                  class="hover-elevate active-elevate-2 border border-primary-border h-auto min-h-16 px-6 md:px-12 py-4 md:py-6 text-xl font-heading font-bold bg-primary hover:scale-105 transition-transform text-primary-foreground shadow-2xl rounded-full w-full whitespace-normal text-center"
+                  data-testid="button-cta-hero">QUERO ACESSAR AGORA</button>
+              </a>
+            </div>
+
+            <!-- Info card -->
+            <div
+              class="shadcn-card rounded-xl border text-card-foreground p-6 md:p-8 bg-card/50 backdrop-blur-sm border-primary/10 shadow-xl max-w-2xl mx-auto">
+              <p class="text-base md:text-lg text-foreground leading-relaxed font-medium">👉 Acesso imediato a +100
+                vídeos de projetos robóticos, com passo a passo simples, para desenvolver criatividade, lógica e
+                habilidades tecnológicas enquanto aprende-se fazendo.</p>
+            </div>
+
+            <!-- Hero video -->
+            <div class="pt-8 flex justify-center w-full max-w-[320px] mx-auto">
+              <div class="relative w-full aspect-[9/16] rounded-2xl shadow-2xl border-4 border-primary/20 bg-black">
+                <div
+                  class="absolute -top-3 -right-3 z-20 bg-primary text-primary-foreground px-3 py-1.5 rounded-md text-[10px] font-black uppercase tracking-wider shadow-[4px_4px_0px_0px_rgba(0,0,0,0.3)] transform rotate-3 border-2 border-white/20">
+                  +100 PROJETOS</div>
+                <div class="w-full h-full overflow-hidden rounded-xl">
+                  <video controls class="w-full h-full object-cover" poster="assets/images/poster.png"
+                    preload="metadata">
+                    <source src="assets/video/hero-video.mp4" type="video/mp4">
+                    Seu navegador não suporta o player de vídeo.
+                  </video>
                 </div>
               </div>
             </div>
-            <div class="bg-white p-5 text-left border-t border-gray-100">
-              <p class="text-[11px] md:text-xs font-bold text-gray-800 leading-relaxed italic">
-                👉 Acesso imediato a +100 vídeos de projetos robóticos, com passo a passo simples, para desenvolver
-                criatividade, lógica e habilidades tecnológicas enquanto aprende-se fazendo.
-              </p>
+
+            <!-- For / Not for -->
+            <div class="pt-12 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto text-left">
+              <div class="bg-success/5 p-6 rounded-2xl border border-success/10 shadow-sm">
+                <h3 class="text-xl font-heading font-bold mb-4 text-foreground">Esse conteúdo é ideal para:</h3>
+                <ul class="space-y-4">
+                  <li class="flex items-start gap-3"><span class="text-lg">✅</span><span
+                      class="text-foreground/90 font-medium">Pais que querem atividades inteligentes para os
+                      filhos</span></li>
+                  <li class="flex items-start gap-3"><span class="text-lg">✅</span><span
+                      class="text-foreground/90 font-medium">Educadores e professores</span></li>
+                  <li class="flex items-start gap-3"><span class="text-lg">✅</span><span
+                      class="text-foreground/90 font-medium">Quem busca ideias criativas para fazer em casa</span></li>
+                  <li class="flex items-start gap-3"><span class="text-lg">✅</span><span
+                      class="text-foreground/90 font-medium">Crianças curiosas e criativas</span></li>
+                </ul>
+              </div>
+              <div class="bg-destructive/5 p-6 rounded-2xl border border-destructive/10 shadow-sm">
+                <h3 class="text-xl font-heading font-bold mb-4 text-foreground">Não é para:</h3>
+                <ul class="space-y-4">
+                  <li class="flex items-start gap-3"><span class="text-lg">❌</span><span
+                      class="text-foreground/90 font-medium">Quem busca apenas entretenimento sem aprendizado</span>
+                  </li>
+                  <li class="flex items-start gap-3"><span class="text-lg">❌</span><span
+                      class="text-foreground/90 font-medium">Quem não quer colocar a mão na massa</span></li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Qualification Section -->
-      <section class="py-16 bg-gray-50/50">
-        <div class="max-w-4xl mx-auto px-5 grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div class="bg-white p-8 rounded-3xl shadow-lg border border-gray-100">
-            <h3 class="text-xl md:text-2xl font-black mb-6 uppercase flex items-center"><span
-                class="mr-3 p-2 bg-green-100 rounded-lg">🎯</span> Esse conteúdo é ideal para:</h3>
-            <ul class="space-y-4">
-              <li class="flex items-start"><span class="text-success font-black mr-3 mt-1">✓</span> <span
-                  class="text-sm md:text-base font-bold text-gray-700 leading-tight">Pais que querem atividades
-                  inteligentes para os filhos</span></li>
-              <li class="flex items-start"><span class="text-success font-black mr-3 mt-1">✓</span> <span
-                  class="text-sm md:text-base font-bold text-gray-700 leading-tight">Educadores e professores que buscam
-                  novos materiais</span></li>
-              <li class="flex items-start"><span class="text-success font-black mr-3 mt-1">✓</span> <span
-                  class="text-sm md:text-base font-bold text-gray-700 leading-tight">Quem busca ideias criativas para
-                  fazer em casa</span></li>
-              <li class="flex items-start"><span class="text-success font-black mr-3 mt-1">✓</span> <span
-                  class="text-sm md:text-base font-bold text-gray-700 leading-tight">Crianças curiosoas e criativas que
-                  amam construir coisas</span></li>
-            </ul>
-          </div>
-          <div class="bg-white p-8 rounded-3xl shadow-lg border border-gray-100/50">
-            <h3 class="text-xl md:text-2xl font-black mb-6 uppercase text-gray-300 flex items-center"><span
-                class="mr-3 p-2 bg-gray-100 rounded-lg grayscale">🚫</span> Não é para:</h3>
-            <ul class="space-y-4">
-              <li class="flex items-start"><span class="text-gray-300 font-black mr-3 mt-1">✕</span> <span
-                  class="text-sm md:text-base font-bold text-gray-400 leading-tight">Quem busca apenas entretenimento
-                  passivo</span></li>
-              <li class="flex items-start"><span class="text-gray-300 font-black mr-3 mt-1">✕</span> <span
-                  class="text-sm md:text-base font-bold text-gray-400 leading-tight">Quem não gosta de colocar a mão na
-                  massa</span></li>
-            </ul>
+      <!-- ──────────────────────────────── MARQUEE (reviews) ─────────────────── -->
+      <div class="bg-success/10 py-4 overflow-hidden border-y border-success/20"
+        data-testid="section-social-proof-marquee">
+        <div class="relative flex">
+          <div class="flex animate-marquee whitespace-nowrap">
+            <div class="mx-8 inline-flex items-center gap-2"><span class="text-success">★★★★★</span><span
+                class="text-sm md:text-base font-medium text-foreground">Meus filhos adoraram! - Ana Silva</span></div>
+            <div class="mx-8 inline-flex items-center gap-2"><span class="text-success">★★★★★</span><span
+                class="text-sm md:text-base font-medium text-foreground">Muito criativo e educativo! - João Pedro</span>
+            </div>
+            <div class="mx-8 inline-flex items-center gap-2"><span class="text-success">★★★★★</span><span
+                class="text-sm md:text-base font-medium text-foreground">Vale cada centavo! - Maria Santos</span></div>
+            <div class="mx-8 inline-flex items-center gap-2"><span class="text-success">★★★★★</span><span
+                class="text-sm md:text-base font-medium text-foreground">Recomendo para todos os pais! - Carlos
+                Lima</span></div>
+            <div class="mx-8 inline-flex items-center gap-2"><span class="text-success">★★★★★</span><span
+                class="text-sm md:text-base font-medium text-foreground">Atividades incríveis! - Fernanda Costa</span>
+            </div>
+            <div class="mx-8 inline-flex items-center gap-2"><span class="text-success">★★★★★</span><span
+                class="text-sm md:text-base font-medium text-foreground">Meu filho não larga! - Roberto Alves</span>
+            </div>
+            <div class="mx-8 inline-flex items-center gap-2"><span class="text-success">★★★★★</span><span
+                class="text-sm md:text-base font-medium text-foreground">Muito bem elaborado! - Paula Souza</span></div>
+            <div class="mx-8 inline-flex items-center gap-2"><span class="text-success">★★★★★</span><span
+                class="text-sm md:text-base font-medium text-foreground">Excelente custo benefício! - Lucas
+                Martins</span></div>
+            <!-- duplicate for seamless loop -->
+            <div class="mx-8 inline-flex items-center gap-2"><span class="text-success">★★★★★</span><span
+                class="text-sm md:text-base font-medium text-foreground">Meus filhos adoraram! - Ana Silva</span></div>
+            <div class="mx-8 inline-flex items-center gap-2"><span class="text-success">★★★★★</span><span
+                class="text-sm md:text-base font-medium text-foreground">Muito criativo e educativo! - João Pedro</span>
+            </div>
+            <div class="mx-8 inline-flex items-center gap-2"><span class="text-success">★★★★★</span><span
+                class="text-sm md:text-base font-medium text-foreground">Vale cada centavo! - Maria Santos</span></div>
+            <div class="mx-8 inline-flex items-center gap-2"><span class="text-success">★★★★★</span><span
+                class="text-sm md:text-base font-medium text-foreground">Recomendo para todos os pais! - Carlos
+                Lima</span></div>
+            <div class="mx-8 inline-flex items-center gap-2"><span class="text-success">★★★★★</span><span
+                class="text-sm md:text-base font-medium text-foreground">Atividades incríveis! - Fernanda Costa</span>
+            </div>
+            <div class="mx-8 inline-flex items-center gap-2"><span class="text-success">★★★★★</span><span
+                class="text-sm md:text-base font-medium text-foreground">Meu filho não larga! - Roberto Alves</span>
+            </div>
+            <div class="mx-8 inline-flex items-center gap-2"><span class="text-success">★★★★★</span><span
+                class="text-sm md:text-base font-medium text-foreground">Muito bem elaborado! - Paula Souza</span></div>
+            <div class="mx-8 inline-flex items-center gap-2"><span class="text-success">★★★★★</span><span
+                class="text-sm md:text-base font-medium text-foreground">Excelente custo benefício! - Lucas
+                Martins</span></div>
           </div>
         </div>
-      </section>
+      </div>
 
-      <!-- Projects Gallery -->
-      <section class="py-20 bg-white">
-        <div class="max-w-5xl mx-auto px-5">
-          <h2 class="text-center text-3xl md:text-5xl font-black mb-16 uppercase tracking-tight leading-tight">
-            VEJA ALGUNS EXEMPLOS DE PROJETOS <br class="hidden md:block"> QUE VOCÊ VAI APRENDER
-          </h2>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+      <!-- ──────────────────────────────── PRODUCT (gallery) ─────────────────── -->
+      <section class="pt-16 pb-4 md:pt-20 md:pb-5 bg-background" data-testid="section-product">
+        <div class="container mx-auto px-4 max-w-6xl">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-5xl font-heading font-black text-foreground mb-4 uppercase tracking-tight">VEJA
+              ALGUNS EXEMPLOS DE PROJETOS QUE VOCÊ VAI APRENDER</h2>
+            <div class="h-1.5 w-24 bg-primary mx-auto rounded-full mb-8"></div>
+          </div>
+
+          <!-- Scrolling gallery -->
+          <div class="relative overflow-hidden py-10" style="contain:layout;">
             <div
-              class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden transform hover:-translate-y-2 transition">
-              <img src="assets/images/trem-eletrico.png" alt="Trem Elétrico" class="w-full h-56 object-cover">
-              <div class="p-6 text-center">
-                <h4 class="font-black text-lg uppercase tracking-wider">Trem Elétrico</h4>
-              </div>
-            </div>
-            <div
-              class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden transform hover:-translate-y-2 transition">
-              <img src="assets/images/carrinho-f1.png" alt="Carrinho de F1" class="w-full h-56 object-cover">
-              <div class="p-6 text-center">
-                <h4 class="font-black text-lg uppercase tracking-wider">Carrinho F1</h4>
-              </div>
-            </div>
-            <div
-              class="bg-purple-600 rounded-2xl shadow-2xl overflow-hidden relative transform hover:-translate-y-2 transition text-white text-center p-8 flex flex-col justify-center min-h-[14rem]">
+              class="flex animate-marquee-fast hover:[animation-play-state:paused] whitespace-nowrap will-change-transform">
               <div
-                class="absolute top-3 right-3 bg-yellow-400 text-black text-[9px] font-black px-2 py-1 rounded shadow">
-                +100 PROJETOS</div>
-              <img src="assets/images/bonus1-cover.webp" alt="E muito mais"
-                class="absolute inset-0 w-full h-full object-cover opacity-20">
-              <span class="text-5xl mb-4 relative z-10">✨</span>
-              <h4 class="font-black text-2xl uppercase relative z-10 leading-tight">E MUITO MAIS <br>PROJETOS!</h4>
-            </div>
-          </div>
-
-          <!-- White List Card -->
-          <div class="bg-gray-50 rounded-[3rem] p-8 md:p-14 shadow-2xl relative border border-gray-100">
-            <div
-              class="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-white px-8 py-3 rounded-full border-2 border-primary/20 shadow-md">
-              <h3 class="font-black text-sm md:text-lg text-center whitespace-nowrap uppercase tracking-tighter">O QUE
-                SEU FILHO VAI CONSEGUIR FAZER?</h3>
-            </div>
-            <p
-              class="text-center text-[10px] md:text-xs font-black text-primary/50 mb-12 mt-4 uppercase tracking-[0.2em]">
-              Robôs, máquinas e brinquedos funcionais como:</p>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-              <div class="flex items-center space-x-2 bg-white p-4 rounded-xl border border-gray-100 shadow-sm"><span
-                  class="text-secondary font-black">✓</span><span class="font-bold text-[10px] md:text-xs">Trem
-                  Elétrico</span></div>
-              <div class="flex items-center space-x-2 bg-white p-4 rounded-xl border border-gray-100 shadow-sm"><span
-                  class="text-secondary font-black">✓</span><span class="font-bold text-[10px] md:text-xs">Mão
-                  Robótica</span></div>
-              <div class="flex items-center space-x-2 bg-white p-4 rounded-xl border border-gray-100 shadow-sm"><span
-                  class="text-secondary font-black">✓</span><span class="font-bold text-[10px] md:text-xs">Escada
-                  Rolante</span></div>
-              <div class="flex items-center space-x-2 bg-white p-4 rounded-xl border border-gray-100 shadow-sm"><span
-                  class="text-secondary font-black">✓</span><span class="font-bold text-[10px] md:text-xs">Robô
-                  Andador</span></div>
-              <div class="flex items-center space-x-2 bg-white p-4 rounded-xl border border-gray-100 shadow-sm"><span
-                  class="text-secondary font-black">✓</span><span class="font-bold text-[10px] md:text-xs">Bomba
-                  d'Água</span></div>
-              <div class="flex items-center space-x-2 bg-white p-4 rounded-xl border border-gray-100 shadow-sm"><span
-                  class="text-secondary font-black">✓</span><span class="font-bold text-[10px] md:text-xs">Cofrinho
-                  Inteligente</span></div>
-              <div class="flex items-center space-x-2 bg-white p-4 rounded-xl border border-gray-100 shadow-sm"><span
-                  class="text-secondary font-black">✓</span><span class="font-bold text-[10px] md:text-xs">Avião
-                  Motorizado</span></div>
-              <div class="flex items-center space-x-2 bg-white p-4 rounded-xl border border-gray-100 shadow-sm"><span
-                  class="text-secondary font-black">✓</span><span class="font-bold text-[10px] md:text-xs">Carro
-                  Ventilador</span></div>
+                class="inline-block mx-4 flex-shrink-0 w-64 md:w-80 h-64 md:h-80 rounded-2xl overflow-hidden border-4 border-primary/20 shadow-xl"
+                style="contain:paint;"><img src="assets/images/proj1.png" alt="Projeto 1"
+                  class="w-full h-full object-cover"></div>
               <div
-                class="bg-primary hover:bg-primary/90 text-white col-span-2 md:col-span-4 p-5 rounded-2xl font-black text-center shadow-lg shadow-primary/20 transition cursor-pointer tracking-wider text-sm">
-                +100 PROJETOS ADICIONAIS</div>
+                class="inline-block mx-4 flex-shrink-0 w-64 md:w-80 h-64 md:h-80 rounded-2xl overflow-hidden border-4 border-primary/20 shadow-xl"
+                style="contain:paint;"><img src="assets/images/proj2.png" alt="Projeto 2"
+                  class="w-full h-full object-cover"></div>
+              <div
+                class="inline-block mx-4 flex-shrink-0 w-64 md:w-80 h-64 md:h-80 rounded-2xl overflow-hidden border-4 border-primary/20 shadow-xl"
+                style="contain:paint;"><img src="assets/images/proj3.png" alt="Projeto 3"
+                  class="w-full h-full object-cover"></div>
+              <div
+                class="inline-block mx-4 flex-shrink-0 w-64 md:w-80 h-64 md:h-80 rounded-2xl overflow-hidden border-4 border-primary/20 shadow-xl"
+                style="contain:paint;"><img src="assets/images/proj4.png" alt="Projeto 4"
+                  class="w-full h-full object-cover"></div>
+              <div
+                class="inline-block mx-4 flex-shrink-0 w-64 md:w-80 h-64 md:h-80 rounded-2xl overflow-hidden border-4 border-primary/20 shadow-xl"
+                style="contain:paint;"><img src="assets/images/proj5.png" alt="Projeto 5"
+                  class="w-full h-full object-cover"></div>
+              <div
+                class="inline-block mx-4 flex-shrink-0 w-64 md:w-80 h-64 md:h-80 rounded-2xl overflow-hidden border-4 border-primary/20 shadow-xl"
+                style="contain:paint;"><img src="assets/images/proj6.png" alt="Projeto 6"
+                  class="w-full h-full object-cover"></div>
+              <div
+                class="inline-block mx-4 flex-shrink-0 w-64 md:w-80 h-64 md:h-80 rounded-2xl overflow-hidden border-4 border-primary/20 shadow-xl"
+                style="contain:paint;"><img src="assets/images/proj7.png" alt="Projeto 7"
+                  class="w-full h-full object-cover"></div>
+              <div
+                class="inline-block mx-4 flex-shrink-0 w-64 md:w-80 h-64 md:h-80 rounded-2xl overflow-hidden border-4 border-primary/20 shadow-xl"
+                style="contain:paint;"><img src="assets/images/proj8.png" alt="Projeto 8"
+                  class="w-full h-full object-cover"></div>
+              <div
+                class="inline-block mx-4 flex-shrink-0 w-64 md:w-80 h-64 md:h-80 rounded-2xl overflow-hidden border-4 border-primary/20 shadow-xl"
+                style="contain:paint;"><img src="assets/images/proj9.png" alt="Projeto 9"
+                  class="w-full h-full object-cover"></div>
+              <div
+                class="inline-block mx-4 flex-shrink-0 w-64 md:w-80 h-64 md:h-80 rounded-2xl overflow-hidden border-4 border-primary/20 shadow-xl"
+                style="contain:paint;"><img src="assets/images/proj10.png" alt="Projeto 10"
+                  class="w-full h-full object-cover"></div>
+              <div
+                class="inline-block mx-4 flex-shrink-0 w-64 md:w-80 h-64 md:h-80 rounded-2xl overflow-hidden border-4 border-primary/20 shadow-xl"
+                style="contain:paint;"><img src="assets/images/proj11.png" alt="Projeto 11"
+                  class="w-full h-full object-cover"></div>
+              <!-- duplicate for seamless loop -->
+              <div
+                class="inline-block mx-4 flex-shrink-0 w-64 md:w-80 h-64 md:h-80 rounded-2xl overflow-hidden border-4 border-primary/20 shadow-xl"
+                style="contain:paint;"><img src="assets/images/proj1.png" alt="Projeto 12"
+                  class="w-full h-full object-cover"></div>
+              <div
+                class="inline-block mx-4 flex-shrink-0 w-64 md:w-80 h-64 md:h-80 rounded-2xl overflow-hidden border-4 border-primary/20 shadow-xl"
+                style="contain:paint;"><img src="assets/images/proj2.png" alt="Projeto 13"
+                  class="w-full h-full object-cover"></div>
+              <div
+                class="inline-block mx-4 flex-shrink-0 w-64 md:w-80 h-64 md:h-80 rounded-2xl overflow-hidden border-4 border-primary/20 shadow-xl"
+                style="contain:paint;"><img src="assets/images/proj3.png" alt="Projeto 14"
+                  class="w-full h-full object-cover"></div>
+              <div
+                class="inline-block mx-4 flex-shrink-0 w-64 md:w-80 h-64 md:h-80 rounded-2xl overflow-hidden border-4 border-primary/20 shadow-xl"
+                style="contain:paint;"><img src="assets/images/proj4.png" alt="Projeto 15"
+                  class="w-full h-full object-cover"></div>
+              <div
+                class="inline-block mx-4 flex-shrink-0 w-64 md:w-80 h-64 md:h-80 rounded-2xl overflow-hidden border-4 border-primary/20 shadow-xl"
+                style="contain:paint;"><img src="assets/images/proj5.png" alt="Projeto 16"
+                  class="w-full h-full object-cover"></div>
             </div>
           </div>
-        </div>
-      </section>
 
-      <!-- Final CTA -->
-      <section class="py-24 bg-gray-50 flex flex-col items-center">
-        <div class="max-w-2xl px-5 w-full text-center">
-          <div class="bg-white p-12 rounded-[3.5rem] shadow-2xl border-4 border-primary/5 flex flex-col items-center">
-            <p class="text-gray-400 font-black text-[10px] uppercase tracking-widest mb-4">Acesso Vitalício +
-              Atualizações</p>
-            <h2 class="text-4xl md:text-5xl font-black mb-10 leading-none">Guia Completo de <br>Projetos Robóticos</h2>
-
-            <div class="flex flex-col items-center mb-12">
-              <span class="text-gray-300 line-through text-lg font-black mb-1">De R$ 99,00</span>
-              <div class="flex items-baseline space-x-1">
-                <span class="text-2xl font-black text-gray-900">Por apenas </span>
-                <span class="text-7xl font-black text-success tracking-tighter">R$ 10</span>
+          <!-- What will your child build? -->
+          <div class="mt-12 mb-12 bg-slate-50 p-6 md:p-10 rounded-3xl border border-slate-200">
+            <div class="text-center mb-8">
+              <h3 class="text-2xl md:text-4xl font-heading font-black text-slate-900 mb-4 uppercase tracking-tight">O
+                QUE SEU FILHO VAI CONSEGUIR FAZER?</h3>
+              <p class="text-slate-600 text-lg md:text-xl">Robôs, máquinas e brinquedos funcionais como:</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+              <div
+                class="flex items-center gap-3 p-4 rounded-xl shadow-sm border transition-all bg-white border-slate-100 hover-elevate">
+                <div class="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center bg-purple-100"><span
+                    class="text-sm font-bold text-purple-600">✓</span></div><span
+                  class="font-bold text-base text-slate-800">Trem Elétrico</span>
+              </div>
+              <div
+                class="flex items-center gap-3 p-4 rounded-xl shadow-sm border transition-all bg-white border-slate-100 hover-elevate">
+                <div class="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center bg-purple-100"><span
+                    class="text-sm font-bold text-purple-600">✓</span></div><span
+                  class="font-bold text-base text-slate-800">Carrinho de Fórmula 1</span>
+              </div>
+              <div
+                class="flex items-center gap-3 p-4 rounded-xl shadow-sm border transition-all bg-white border-slate-100 hover-elevate">
+                <div class="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center bg-purple-100"><span
+                    class="text-sm font-bold text-purple-600">✓</span></div><span
+                  class="font-bold text-base text-slate-800">Mão Robótica</span>
+              </div>
+              <div
+                class="flex items-center gap-3 p-4 rounded-xl shadow-sm border transition-all bg-white border-slate-100 hover-elevate">
+                <div class="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center bg-purple-100"><span
+                    class="text-sm font-bold text-purple-600">✓</span></div><span
+                  class="font-bold text-base text-slate-800">WALL-E de Papelão</span>
+              </div>
+              <div
+                class="flex items-center gap-3 p-4 rounded-xl shadow-sm border transition-all bg-white border-slate-100 hover-elevate">
+                <div class="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center bg-purple-100"><span
+                    class="text-sm font-bold text-purple-600">✓</span></div><span
+                  class="font-bold text-base text-slate-800">Escada Rolante de Bolinhas</span>
+              </div>
+              <div
+                class="flex items-center gap-3 p-4 rounded-xl shadow-sm border transition-all bg-white border-slate-100 hover-elevate">
+                <div class="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center bg-purple-100"><span
+                    class="text-sm font-bold text-purple-600">✓</span></div><span
+                  class="font-bold text-base text-slate-800">Robô Andador</span>
+              </div>
+              <div
+                class="flex items-center gap-3 p-4 rounded-xl shadow-sm border transition-all bg-white border-slate-100 hover-elevate">
+                <div class="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center bg-purple-100"><span
+                    class="text-sm font-bold text-purple-600">✓</span></div><span
+                  class="font-bold text-base text-slate-800">Carro Ventilador</span>
+              </div>
+              <div
+                class="flex items-center gap-3 p-4 rounded-xl shadow-sm border transition-all bg-white border-slate-100 hover-elevate">
+                <div class="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center bg-purple-100"><span
+                    class="text-sm font-bold text-purple-600">✓</span></div><span
+                  class="font-bold text-base text-slate-800">Bomba d'Água</span>
+              </div>
+              <div
+                class="flex items-center gap-3 p-4 rounded-xl shadow-sm border transition-all bg-white border-slate-100 hover-elevate">
+                <div class="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center bg-purple-100"><span
+                    class="text-sm font-bold text-purple-600">✓</span></div><span
+                  class="font-bold text-base text-slate-800">Elevador Eletrônico</span>
+              </div>
+              <div
+                class="flex items-center gap-3 p-4 rounded-xl shadow-sm border transition-all bg-white border-slate-100 hover-elevate">
+                <div class="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center bg-purple-100"><span
+                    class="text-sm font-bold text-purple-600">✓</span></div><span
+                  class="font-bold text-base text-slate-800">Cofrinho Inteligente</span>
+              </div>
+              <div
+                class="flex items-center gap-3 p-4 rounded-xl shadow-sm border transition-all bg-white border-slate-100 hover-elevate">
+                <div class="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center bg-purple-100"><span
+                    class="text-sm font-bold text-purple-600">✓</span></div><span
+                  class="font-bold text-base text-slate-800">Helicóptero com Motor</span>
+              </div>
+              <div
+                class="flex items-center gap-3 p-4 rounded-xl shadow-sm border transition-all bg-white border-slate-100 hover-elevate">
+                <div class="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center bg-purple-100"><span
+                    class="text-sm font-bold text-purple-600">✓</span></div><span
+                  class="font-bold text-base text-slate-800">Avião Motorizado</span>
+              </div>
+              <div
+                class="flex items-center gap-3 p-4 rounded-xl shadow-sm border transition-all bg-purple-600 border-purple-500 text-white col-span-1 md:col-span-2">
+                <div class="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center bg-white"><span
+                    class="text-sm font-bold text-purple-600">✓</span></div><span
+                  class="font-bold text-base text-white">+100 Projetos</span>
               </div>
             </div>
+          </div>
 
-            <a href="https://pay.hotmart.com"
-              class="bg-success hover:bg-green-700 text-white font-black py-7 px-10 rounded-[1.5rem] text-2xl md:text-3xl shadow-3xl shadow-success/30 transition transform hover:scale-105 active:scale-95 leading-none w-full mb-8">
-              ADQUIRIR ACESSO AGORA
+          <!-- CTA mid -->
+          <div class="mt-12 text-center">
+            <a href="https://checkout.projetogeniobrasil.com.br/VCCL1O8SCOGT" rel="noopener noreferrer"
+              class="inline-block w-full max-w-[90vw] md:max-w-none">
+              <button
+                class="hover-elevate active-elevate-2 min-h-9 bg-green-600 hover:bg-green-700 text-white font-heading font-black text-xl md:text-2xl px-6 md:px-12 py-6 md:py-8 rounded-xl shadow-2xl uppercase tracking-wide transition-all duration-300 hover:scale-105 border-4 border-green-700 h-auto w-full whitespace-normal text-center"
+                data-testid="button-presentation-cta">QUERO COMEÇAR AGORA POR APENAS R$ 10</button>
             </a>
+          </div>
+        </div>
+      </section>
 
-            <div class="flex items-center space-x-3 opacity-40 grayscale">
-              <img src="assets/images/seguro.png" alt="Compra segura" class="h-8">
-              <span class="text-[9px] font-black uppercase text-left leading-tight">Compra 100% Segura<br>Garantia
-                Incondicional de 7 Dias</span>
+      <!-- ──────────────────────────────── FAQ ──────────────────────────────── -->
+      <section class="pt-16 pb-5 md:pt-20 md:pb-6 bg-muted/30" data-testid="section-faq">
+        <div class="container mx-auto px-4 max-w-4xl">
+          <h2 class="font-heading font-bold text-3xl md:text-4xl text-center mb-12 text-foreground">❓ Perguntas
+            Frequentes (FAQ)</h2>
+          <div class="space-y-4" id="faq-accordion">
+
+            <div class="bg-card border border-card-border rounded-lg px-6 hover-elevate">
+              <h3 class="flex"><button onclick="toggleFaq(this)"
+                  class="flex flex-1 items-center justify-between py-4 text-left font-heading font-semibold text-lg text-foreground">1.
+                  Preciso de conhecimento técnico?<svg class="accordion-chevron h-4 w-4 shrink-0"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="m6 9 6 6 6-6" />
+                  </svg></button></h3>
+              <div class="accordion-content pb-4 text-foreground/80" style="display:none">Não! Os projetos são feitos
+                para qualquer pessoa, mesmo sem conhecimento de eletrônica ou robótica. Basta seguir o passo a passo dos
+                vídeos.</div>
+            </div>
+
+            <div class="bg-card border border-card-border rounded-lg px-6 hover-elevate">
+              <h3 class="flex"><button onclick="toggleFaq(this)"
+                  class="flex flex-1 items-center justify-between py-4 text-left font-heading font-semibold text-lg text-foreground">2.
+                  Preciso comprar kits caros ou equipamentos específicos?<svg class="accordion-chevron h-4 w-4 shrink-0"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="m6 9 6 6 6-6" />
+                  </svg></button></h3>
+              <div class="accordion-content pb-4 text-foreground/80" style="display:none">Não! Todos os projetos
+                utilizam materiais simples encontrados em qualquer casa ou papelaria, como papelão, palitos, motores
+                pequenos e pilhas.</div>
+            </div>
+
+            <div class="bg-card border border-card-border rounded-lg px-6 hover-elevate">
+              <h3 class="flex"><button onclick="toggleFaq(this)"
+                  class="flex flex-1 items-center justify-between py-4 text-left font-heading font-semibold text-lg text-foreground">3.
+                  Como recebo o material após o pagamento?<svg class="accordion-chevron h-4 w-4 shrink-0"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="m6 9 6 6 6-6" />
+                  </svg></button></h3>
+              <div class="accordion-content pb-4 text-foreground/80" style="display:none">O acesso é 100% digital e
+                imediato. Após a confirmação do pagamento, você recebe um e-mail com o link para acessar todos os
+                vídeos.</div>
+            </div>
+
+            <div class="bg-card border border-card-border rounded-lg px-6 hover-elevate">
+              <h3 class="flex"><button onclick="toggleFaq(this)"
+                  class="flex flex-1 items-center justify-between py-4 text-left font-heading font-semibold text-lg text-foreground">4.
+                  O acesso é imediato?<svg class="accordion-chevron h-4 w-4 shrink-0" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="m6 9 6 6 6-6" />
+                  </svg></button></h3>
+              <div class="accordion-content pb-4 text-foreground/80" style="display:none">Sim! Assim que o pagamento for
+                confirmado você já terá acesso a todo o conteúdo.</div>
+            </div>
+
+            <div class="bg-card border border-card-border rounded-lg px-6 hover-elevate">
+              <h3 class="flex"><button onclick="toggleFaq(this)"
+                  class="flex flex-1 items-center justify-between py-4 text-left font-heading font-semibold text-lg text-foreground">5.
+                  Preciso assistir tudo de uma vez?<svg class="accordion-chevron h-4 w-4 shrink-0"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="m6 9 6 6 6-6" />
+                  </svg></button></h3>
+              <div class="accordion-content pb-4 text-foreground/80" style="display:none">Não! O acesso é vitalício.
+                Você pode assistir no seu ritmo, quando e onde quiser.</div>
+            </div>
+
+            <div class="bg-card border border-card-border rounded-lg px-6 hover-elevate">
+              <h3 class="flex"><button onclick="toggleFaq(this)"
+                  class="flex flex-1 items-center justify-between py-4 text-left font-heading font-semibold text-lg text-foreground">6.
+                  Posso acessar pelo celular ou computador?<svg class="accordion-chevron h-4 w-4 shrink-0"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="m6 9 6 6 6-6" />
+                  </svg></button></h3>
+              <div class="accordion-content pb-4 text-foreground/80" style="display:none">Sim! O conteúdo é responsivo e
+                pode ser acessado em qualquer dispositivo: celular, tablet ou computador.</div>
+            </div>
+
+            <div class="bg-card border border-card-border rounded-lg px-6 hover-elevate">
+              <h3 class="flex"><button onclick="toggleFaq(this)"
+                  class="flex flex-1 items-center justify-between py-4 text-left font-heading font-semibold text-lg text-foreground">7.
+                  É um curso ou aulas longas?<svg class="accordion-chevron h-4 w-4 shrink-0"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="m6 9 6 6 6-6" />
+                  </svg></button></h3>
+              <div class="accordion-content pb-4 text-foreground/80" style="display:none">São vídeos curtos e objetivos,
+                mostrando o passo a passo de cada projeto. Não são aulas teóricas — você aprende fazendo!</div>
+            </div>
+
+            <div class="bg-card border border-card-border rounded-lg px-6 hover-elevate">
+              <h3 class="flex"><button onclick="toggleFaq(this)"
+                  class="flex flex-1 items-center justify-between py-4 text-left font-heading font-semibold text-lg text-foreground">8.
+                  Existe risco?<svg class="accordion-chevron h-4 w-4 shrink-0" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="m6 9 6 6 6-6" />
+                  </svg></button></h3>
+              <div class="accordion-content pb-4 text-foreground/80" style="display:none">Zero risco! Você tem 7 dias de
+                garantia incondicional. Se não gostar por qualquer motivo, devolvemos 100% do seu dinheiro.</div>
+            </div>
+
+          </div>
+
+          <div class="mt-12 flex justify-center">
+            <a href="https://checkout.projetogeniobrasil.com.br/VCCL1O8SCOGT" rel="noopener noreferrer"
+              class="w-full max-w-2xl">
+              <button
+                class="hover-elevate active-elevate-2 w-full h-auto py-6 px-8 md:py-8 md:px-12 bg-green-600 hover:bg-green-700 text-white border-4 border-green-700 shadow-2xl text-2xl md:text-3xl font-heading font-bold uppercase leading-tight rounded-xl"
+                data-testid="button-faq-checkout">Adquirir Acesso ao Guia</button>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ──────────────────────────────── TESTIMONIALS ─────────────────────── -->
+      <section class="py-4 md:py-5 bg-muted/30" data-testid="section-testimonials">
+        <div class="container mx-auto px-4 max-w-5xl">
+          <div class="text-center mb-8">
+            <h2 class="font-heading font-bold text-3xl md:text-4xl mb-3 text-foreground uppercase">O QUE OS CLIENTES
+              DIZEM SOBRE O GUIA DOS PROJETOS ROBÓTICOS</h2>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div
+              class="shadcn-card rounded-xl bg-card text-card-foreground shadow-sm overflow-hidden border-2 border-primary/20">
+              <img src="assets/images/testimonial1.png" alt="Feedback de cliente"
+                class="w-full h-auto object-contain max-h-[600px]">
+            </div>
+            <div
+              class="shadcn-card rounded-xl bg-card text-card-foreground shadow-sm overflow-hidden border-2 border-primary/20">
+              <img src="assets/images/testimonial2.png" alt="Feedback de cliente"
+                class="w-full h-auto object-contain max-h-[600px]">
             </div>
           </div>
         </div>
       </section>
-    </div>
-  </div>
 
-  <!-- Scripts -->
-  <script src="assets/js/script.js"></script>
+      <!-- ──────────────────────────────── FINAL CTA ────────────────────────── -->
+      <section class="py-16 md:py-20 bg-background" data-testid="section-cta-final">
+        <div class="container mx-auto px-4 max-w-2xl text-center">
+          <div class="shadcn-card rounded-3xl border p-8 md:p-12 bg-card/80 backdrop-blur shadow-2xl">
+            <p class="text-muted-foreground/60 font-medium text-xs uppercase tracking-widest mb-4">Acesso Vitalício +
+              Atualizações</p>
+            <h2 class="font-heading font-black text-4xl md:text-5xl mb-8 text-foreground leading-none">Guia Completo
+              de<br>Projetos Robóticos</h2>
+            <div class="flex flex-col items-center mb-10">
+              <span class="text-muted-foreground line-through text-lg font-bold mb-1">De R$ 99,00</span>
+              <div class="flex items-baseline gap-2">
+                <span class="text-2xl font-black text-foreground">Por apenas</span>
+                <span class="text-7xl font-black text-success tracking-tighter leading-none">R$10</span>
+              </div>
+            </div>
+            <a href="https://checkout.projetogeniobrasil.com.br/VCCL1O8SCOGT" rel="noopener noreferrer"
+              class="block w-full">
+              <button
+                class="hover-elevate active-elevate-2 w-full bg-green-600 hover:bg-green-700 text-white font-heading font-black text-2xl md:text-3xl px-6 py-7 rounded-2xl shadow-2xl uppercase tracking-wide transition-all duration-300 hover:scale-105 border-4 border-green-700"
+                data-testid="button-final-cta">ADQUIRIR ACESSO AGORA</button>
+            </a>
+            <p class="text-muted-foreground/50 text-xs mt-6 font-medium">🔒 Compra 100% Segura · Garantia Incondicional
+              de 7 Dias</p>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- /.min-h-screen -->
+  </div><!-- /#root -->
+
+  <script>
+    // Simple accordion toggle
+    function toggleFaq(btn) {
+      const content = btn.closest('.bg-card').querySelector('.accordion-content');
+      const chevron = btn.querySelector('.accordion-chevron');
+      const isOpen = content.style.display !== 'none';
+      content.style.display = isOpen ? 'none' : 'block';
+      if (chevron) chevron.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+    }
+  </script>
 </body>
 
 </html>
