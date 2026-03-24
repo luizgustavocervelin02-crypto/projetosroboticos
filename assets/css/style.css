@@ -1,0 +1,269 @@
+:root {
+    --primary-red: #FF3B3B;
+    --primary-red-dark: #cc2f2f;
+    --primary-green: #22C55E;
+    --primary-green-dark: #16a34a;
+    --bg-cream: #FAF9F6;
+    --text-dark: #1F2937;
+    --text-muted: #4B5563;
+    --white: #FFFFFF;
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-cream);
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Announcement Banner */
+.announcement-banner {
+    background: linear-gradient(90deg, #E63946, #F1FAEE, #A8DADC);
+    /* Ajustado conforme screenshot */
+    background: linear-gradient(90deg, #ff4c22, #ffb000);
+    /* Real match from screenshot */
+    color: white;
+    text-align: center;
+    padding: 12px 0;
+    font-size: 1rem;
+    font-weight: 800;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Hero Section */
+.hero {
+    background: #ffffff url('../images/hero-bg.webp') center/cover no-repeat;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.benefits-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.benefit-item {
+    background: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Bonus Section */
+.bonuses {
+    padding: 80px 0;
+    background: #ffffff;
+    text-align: center;
+}
+
+.bonus-intro {
+    background: #F9C74F;
+    /* Yellow */
+    padding: 20px;
+    border-radius: 15px;
+    font-weight: 800;
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+}
+
+.bonus-card {
+    background: #2D6A4F;
+    /* Dark Green matching screenshot */
+    color: white;
+    padding: 40px;
+    border-radius: 30px;
+    margin-bottom: 30px;
+}
+
+.bonus-card h3 {
+    font-size: 2rem;
+    margin: 20px 0;
+}
+
+.bonus-card img {
+    max-width: 300px;
+    border-radius: 15px;
+}
+
+/* Projects List */
+.projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background: #F9FAFB;
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-align: left;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+}
+
+.project-card span {
+    background: #E0B0FF;
+    /* Soft Purple */
+    color: #8A2BE2;
+    /* Darker Purple */
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1rem;
+}
+
+/* Offer Box */
+.offer-box {
+    background: #D90429;
+    /* Deep Red */
+    color: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 600px;
+    margin: 40px auto;
+}
+
+.offer-box h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.price-highlight {
+    font-size: 4rem;
+    font-weight: 900;
+    color: #FFD700;
+    /* Gold/Yellow */
+    margin: 10px 0;
+    font-family: var(--font-heading);
+}
+
+.cta-button-final {
+    display: block;
+    background: #F9C74F;
+    /* Yellow */
+    color: #1F2937;
+    padding: 25px;
+    border-radius: 15px;
+    font-weight: 800;
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin: 30px 0;
+    transition: transform 0.2s;
+    box-shadow: 0 10px 0 #C9A227;
+}
+
+.cta-button-final:active {
+    transform: translateY(5px);
+    box-shadow: 0 5px 0 #C9A227;
+}
+
+.seal {
+    max-width: 120px;
+}
+
+/* FAQ Section */
+.faq {
+    padding: 80px 0;
+}
+
+.faq h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.accordion-item {
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.accordion-header {
+    width: 100%;
+    padding: 20px;
+    background: none;
+    border: none;
+    text-align: left;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion-header::after {
+    content: '+';
+    font-size: 1.5rem;
+}
+
+.accordion-item.active .accordion-header::after {
+    content: '-';
+}
+
+.accordion-content {
+    padding: 0 20px 20px;
+    display: none;
+}
+
+.accordion-item.active .accordion-content {
+    display: block;
+}
+
+/* Footer */
+footer {
+    padding: 40px 0;
+    background: var(--text-dark);
+    color: white;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero .subheadline {
+        font-size: 1.1rem;
+    }
+
+    .benefits-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .qualification .container {
+        flex-direction: column;
+    }
+}
