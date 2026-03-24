@@ -4,164 +4,217 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projeto Gênio Brasil - Robótica</title>
+  <title>Guia dos Projeto Robóticos - Edição Especial</title>
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
     rel="stylesheet">
 </head>
 
-<body class="scrapbook-theme">
-  <header class="announcement-banner">
-    <p>OFERTA VÁLIDA SOMENTE <strong>HOJE - 24/03/2026</strong></p>
+<body class="bg-gray-50 text-gray-900 font-sans">
+  <header
+    class="bg-gradient-to-r from-orange-600 to-red-600 text-white text-center py-2 text-sm font-bold sticky top-0 z-50">
+    OFERTA VÁLIDA SOMENTE HOJE - 24/03/2026
   </header>
 
   <main>
-    <section class="hero-scrapbook">
-      <div class="decorations">
-        <img src="assets/hero-bg-scrapbook.webp" alt="Scrapbook Elements" class="bg-elements">
-        <div class="sun">☀️</div>
-        <div class="kite">🪁</div>
+    <section class="relative bg-white overflow-hidden pb-12 pt-10" id="hero">
+      <div class="absolute inset-0 z-0 opacity-10 pointer-events-none"
+        style="background-image: url('assets/images/hero-bg.webp'); background-size: cover; background-position: center;">
       </div>
 
-      <div class="container hero-content">
-        <p class="hero-top-text">GUIA DOS PROJETOS ROBÓTICOS</p>
-        <h1>Transforme materiais simples em projetos de <span class="highlight">robótica</span></h1>
-        <p class="hero-subtitle">Projetos simples, criativos e gravados em vídeo para você fazer em casa usando
-          materiais fáceis de encontrar.</p>
+      <div class="max-w-4xl mx-auto px-4 relative z-10 text-center">
+        <p class="text-pink-600 font-bold tracking-widest text-xs mb-2 uppercase">Guia do Projeto Robótico</p>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-6 text-gray-900">
+          Transforme materiais simples em projetos de <span class="text-red-500">robótica</span>
+        </h1>
+        <p class="text-lg text-gray-600 mb-10 max-w-2xl mx-auto">
+          Aprenda a criar robôs, máquinas e brinquedos funcionais do zero, usando materiais recicláveis e eletrônicos
+          baratos.
+        </p>
 
-        <div class="hero-cards-grid">
-          <div class="h-card c-blue"><span>Projetos de robótica passo a passo em vídeo</span></div>
-          <div class="h-card c-pink"><span>Estimula lógica, criatividade e raciocínio</span></div>
-          <div class="h-card c-yellow"><span>Ideal para fazer em casa ou na escola</span></div>
-          <div class="h-card c-green"><span>Atividades que conectam adultos e crianças</span></div>
-        </div>
-
-        <div class="hero-checkmarks">
-          <span>✅ ACESSO IMEDIATO</span>
-          <span>✅ CONTEÚDO VITALÍCIO</span>
-          <span>✅ ATUALIZAÇÕES INCLUSAS</span>
-        </div>
-
-        <div class="main-cta-wrapper">
-          <a href="#checkout" class="cta-button-red">QUERO ACESSAR AGORA</a>
-        </div>
-
-        <div class="video-section">
-          <div class="video-container">
-            <!-- Placeholder for the actual VSL video -->
-            <div class="video-placeholder">
-              <img src="assets/robot-main.png" alt="Video Placeholder">
-              <div class="play-button">▶</div>
-              <span>+100 Projetos de Robótica</span>
-            </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10 text-left max-w-2xl mx-auto">
+          <div class="bg-blue-50 p-4 rounded-xl flex items-center space-x-3">
+            <span class="text-2xl">🤖</span>
+            <span class="font-bold text-sm">Passo a passo simples em vídeo</span>
           </div>
-          <div class="video-caption">
-            <p>👉 Acesso imediato a +100 vídeos de projetos robóticos, com passo a passo simples, para desenvolver
-              criatividade, lógica e habilidades tecnológicas enquanto aprende-se fazendo.</p>
+          <div class="bg-pink-50 p-4 rounded-xl flex items-center space-x-3">
+            <span class="text-2xl">💡</span>
+            <span class="font-bold text-sm">Estimula lógica e criatividade</span>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="qualification-scrapbook">
-      <div class="container grid-2">
-        <div class="q-card ideal">
-          <h3>Esse conteúdo é ideal para:</h3>
-          <ul>
-            <li>✅ Pais que querem atividades inteligentes para os filhos</li>
-            <li>✅ Educadores e professores</li>
-            <li>✅ Quem busca ideias criativas para fazer em casa</li>
-            <li>✅ Crianças curiosas e criativas</li>
-          </ul>
-        </div>
-        <div class="q-card not-for">
-          <h3>Não é para:</h3>
-          <ul>
-            <li>❌ Quem busca apenas entretenimento sem aprendizado</li>
-            <li>❌ Quem não quer colocar a mão na massa</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="project-gallery-scrapbook">
-      <div class="container">
-        <h2 class="title-main">VEJA ALGUNS EXEMPLOS DE PROJETOS QUE VOCÊ VAI APRENDER</h2>
-        <div class="gallery-slider">
-          <div class="g-card">
-            <img src="assets/trem-eletrico.png" alt="Trem Elétrico">
-            <div class="g-name">TREM ELÉTRICO</div>
+          <div class="bg-yellow-50 p-4 rounded-xl flex items-center space-x-3">
+            <span class="text-2xl">🏠</span>
+            <span class="font-bold text-sm">Ideal para fazer em casa</span>
           </div>
-          <div class="g-card">
-            <img src="assets/carrinho-f1.png" alt="Carrinho de Fórmula 1">
-            <div class="g-name">CARRINHO DE FÓRMULA 1</div>
-          </div>
-          <div class="g-card bonus-g">
-            <div class="bonus-tag-top">+100 PROJETOS</div>
-            <img src="assets/bonus-cover.webp" alt="E Muito Mais">
-            <div class="g-name">E MUITO MAIS!</div>
+          <div class="bg-green-50 p-4 rounded-xl flex items-center space-x-3">
+            <span class="text-2xl">👨‍👩‍👧</span>
+            <span class="font-bold text-sm">Conecta adultos e crianças</span>
           </div>
         </div>
 
-        <div class="projects-list-white">
-          <h3>O QUE SEU FILHO VAI CONSEGUIR FAZER?</h3>
-          <p>Robôs, máquinas e brinquedos funcionais como:</p>
-          <div class="list-grid">
-            <div class="li-item"><span>✓ Trem Elétrico</span></div>
-            <div class="li-item"><span>✓ Carrinho de Fórmula 1</span></div>
-            <div class="li-item"><span>✓ Mão Robótica</span></div>
-            <div class="li-item"><span>✓ WALL-E de Papelão</span></div>
-            <div class="li-item"><span>✓ Escada Rolante de Bolinhas</span></div>
-            <div class="li-item"><span>✓ Robô Andador</span></div>
-            <div class="li-item"><span>✓ Carro Ventilador</span></div>
-            <div class="li-item"><span>✓ Bomba d'Água</span></div>
-            <div class="li-item"><span>✓ Elevador Eletrônico</span></div>
-            <div class="li-item"><span>✓ Cofrinho Inteligente</span></div>
-            <div class="li-item"><span>✓ Helicóptero com Motor</span></div>
-            <div class="li-item"><span>✓ Avião Motorizado</span></div>
-            <div class="li-item full-w purple-bg"><span>✓ +100 Projetos</span></div>
+        <div class="flex flex-col items-center space-y-4 mb-12">
+          <div class="flex space-x-2 text-green-600 font-bold text-xs uppercase tracking-tighter">
+            <span>✅ ACESSO IMEDIATO</span>
+            <span>✅ CONTEÚDO VITALÍCIO</span>
+            <span>✅ ATUALIZAÇÕES</span>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="offer" id="checkout">
-      <div class="container">
-        <div class="price-container">
-          <a href="https://pay.hotmart.com" class="cta-green-offer">QUERO COMEÇAR AGORA POR APENAS R$ 10</a>
+          <a href="#payment"
+            class="bg-red-600 hover:bg-red-700 text-white font-black py-5 px-10 rounded-2xl text-xl shadow-xl transition transform hover:scale-105">
+            QUERO COMEÇAR AGORA
+          </a>
         </div>
 
-        <div class="faq-section">
-          <h2>❓ Perguntas Frequentes (FAQ)</h2>
-          <div class="accordion">
-            <div class="accordion-item">
-              <div class="accordion-header">1. Preciso de conhecimento técnico?</div>
-              <div class="accordion-content">Não! Os projetos são explicados passo a passo de forma simples.</div>
-            </div>
-            <div class="accordion-item">
-              <div class="accordion-header">2. Preciso comprar kits caros?</div>
-              <div class="accordion-content">A maioria dos materiais são recicláveis ou eletrônicos básicos e baratos.
+        <div
+          class="relative max-w-lg mx-auto bg-black rounded-3xl p-1 border-4 border-black shadow-2xl overflow-hidden group">
+          <div
+            class="absolute top-4 right-4 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded-md z-20 shadow-lg">
+            +100 PROJETOS
+          </div>
+          <!-- Placeholder Video UI -->
+          <div class="aspect-w-9 aspect-h-16 bg-gray-900 flex items-center justify-center relative">
+            <img src="assets/images/robot-main.png" alt="Video Cover" class="w-full h-full object-cover opacity-60">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div
+                class="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center text-white text-3xl shadow-2xl group-hover:scale-110 transition">
+                ▶
               </div>
             </div>
-            <div class="accordion-item">
-              <div class="accordion-header">3. Como recebo o material?</div>
-              <div class="accordion-content">Imediatamente após a compra via e-mail e WhatsApp.</div>
+          </div>
+          <div class="bg-white p-4 text-left border-t-2 border-gray-100">
+            <p class="text-xs font-bold text-gray-800 leading-relaxed italic">
+              👉 Acesso imediato a +100 vídeos de projetos robóticos, com passo a passo simples, para desenvolver
+              criatividade e lógica.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 bg-gray-50 border-t border-b border-gray-200" id="qualification">
+      <div class="max-w-4xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-white p-8 rounded-3xl shadow-lg border border-gray-100">
+          <h3 class="text-xl font-black mb-6 flex items-center"><span class="mr-2">🎯</span> IDEAL PARA:</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start"><span class="text-green-500 mr-2 text-lg">✓</span> <span
+                class="text-sm font-semibold">Pais que buscam atividades de qualidade</span></li>
+            <li class="flex items-start"><span class="text-green-500 mr-2 text-lg">✓</span> <span
+                class="text-sm font-semibold">Educadores e Professores de Robótica/Maker</span></li>
+            <li class="flex items-start"><span class="text-green-500 mr-2 text-lg">✓</span> <span
+                class="text-sm font-semibold">Crianças de 6 a 14 anos curiosas</span></li>
+            <li class="flex items-start"><span class="text-green-500 mr-2 text-lg">✓</span> <span
+                class="text-sm font-semibold">Quem quer aprender eletrônica básica na prática</span></li>
+          </ul>
+        </div>
+        <div class="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 opacity-80">
+          <h3 class="text-xl font-black mb-6 flex items-center text-gray-400"><span class="mr-2">🚫</span> NÃO É PARA:
+          </h3>
+          <ul class="space-y-3">
+            <li class="flex items-start"><span class="text-red-400 mr-2 text-lg">✕</span> <span
+                class="text-sm font-semibold text-gray-500">Quem busca apenas entretenimento passivo</span></li>
+            <li class="flex items-start"><span class="text-red-400 mr-2 text-lg">✕</span> <span
+                class="text-sm font-semibold text-gray-500">Quem não gosta de colocar a mão na massa</span></li>
+            <li class="flex items-start"><span class="text-red-400 mr-2 text-lg">✕</span> <span
+                class="text-sm font-semibold text-gray-500">Quem quer kits robóticos ultra caros</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-white" id="gallery">
+      <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-center text-3xl md:text-4xl font-black mb-16 uppercase tracking-tight">
+          VEJA ALGUNS EXEMPLOS DE PROJETOS <br class="hidden md:block"> QUE VOCÊ VAI APRENDER
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div
+            class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 transform hover:-translate-y-2 transition">
+            <img src="assets/images/trem-eletrico.png" alt="Trem Elétrico" class="w-full h-48 object-cover">
+            <div class="p-6 text-center">
+              <h4 class="font-black text-lg uppercase">Trem Elétrico</h4>
             </div>
+          </div>
+          <div
+            class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 transform hover:-translate-y-2 transition">
+            <img src="assets/images/carrinho-f1.png" alt="Carrinho de F1" class="w-full h-48 object-cover">
+            <div class="p-6 text-center">
+              <h4 class="font-black text-lg uppercase">Carrinho F1</h4>
+            </div>
+          </div>
+          <div
+            class="bg-purple-600 rounded-2xl shadow-2xl overflow-hidden text-white flex flex-col items-center justify-center p-8 relative transform hover:-translate-y-2 transition">
+            <div class="absolute top-2 right-2 bg-yellow-400 text-black text-[9px] font-bold px-2 py-1 rounded">+100
+              PROJETOS</div>
+            <span class="text-5xl mb-4">✨</span>
+            <h4 class="font-black text-xl uppercase text-center">E MUITO MAIS PROJETOS!</h4>
           </div>
         </div>
 
-        <a href="https://pay.hotmart.com" class="cta-green-offer">ADQUIRIR ACESSO AO GUIA</a>
+        <div class="bg-gray-50 rounded-3xl p-8 md:p-12 shadow-2xl relative">
+          <div
+            class="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-white px-8 py-3 rounded-full border-2 border-gray-200 shadow-md">
+            <h3 class="font-black text-lg text-center whitespace-nowrap">O QUE SEU FILHO VAI CONSEGUIR FAZER?</h3>
+          </div>
+          <p class="text-center text-sm font-bold text-gray-500 mb-10 pt-4 uppercase tracking-widest">Robôs, máquinas e
+            brinquedos funcionais como:</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+            <div class="flex items-center space-x-3 bg-white p-4 rounded-xl shadow-sm"><span
+                class="text-blue-500 font-black">✓</span><span class="font-bold text-sm">Trem Elétrico</span></div>
+            <div class="flex items-center space-x-3 bg-white p-4 rounded-xl shadow-sm"><span
+                class="text-blue-500 font-black">✓</span><span class="font-bold text-sm">Mão Robótica</span></div>
+            <div class="flex items-center space-x-3 bg-white p-4 rounded-xl shadow-sm"><span
+                class="text-blue-500 font-black">✓</span><span class="font-bold text-sm">Escada Rolante</span></div>
+            <div class="flex items-center space-x-3 bg-white p-4 rounded-xl shadow-sm"><span
+                class="text-blue-500 font-black">✓</span><span class="font-bold text-sm">Robô Andador</span></div>
+            <div class="flex items-center space-x-3 bg-white p-4 rounded-xl shadow-sm"><span
+                class="text-blue-500 font-black">✓</span><span class="font-bold text-sm">Bomba d'Água</span></div>
+            <div class="flex items-center space-x-3 bg-white p-4 rounded-xl shadow-sm"><span
+                class="text-blue-500 font-black">✓</span><span class="font-bold text-sm">Cofrinho Inteligente</span>
+            </div>
+            <div class="flex items-center space-x-3 bg-white p-4 rounded-xl shadow-sm"><span
+                class="text-blue-500 font-black">✓</span><span class="font-bold text-sm">Avião Motorizado</span></div>
+            <div class="flex items-center space-x-3 bg-white p-4 rounded-xl shadow-sm"><span
+                class="text-blue-500 font-black">✓</span><span class="font-bold text-sm">Carro Ventilador</span></div>
+            <div
+              class="bg-blue-600 text-white col-span-1 md:col-span-2 p-4 rounded-xl font-black text-center shadow-lg">
+              +100 PROJETOS ADICIONAIS</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-gray-50" id="payment">
+      <div class="max-w-2xl mx-auto px-4 text-center">
+        <div class="bg-white p-10 rounded-3xl shadow-2xl border-4 border-red-100 flex flex-col items-center">
+          <span class="text-red-500 font-black text-sm uppercase mb-4 tracking-widest">Acesso Vitalício +
+            Atualizações</span>
+          <h2 class="text-4xl font-black mb-8 leading-tight">Guia Completo de <br>Projetos Robóticos</h2>
+
+          <div class="flex flex-col items-center mb-10">
+            <span class="text-gray-400 line-through text-lg font-bold">De R$ 99,00</span>
+            <div class="flex items-center">
+              <span class="text-2xl font-black text-gray-900 mr-2">Por apenas </span>
+              <span class="text-5xl font-black text-green-600">R$ 10</span>
+            </div>
+          </div>
+
+          <a href="https://pay.hotmart.com"
+            class="bg-green-600 hover:bg-green-700 text-white font-black py-6 px-12 rounded-2xl text-2xl shadow-2xl transition transform hover:scale-105 w-full mb-6">
+            ADQUIRIR AGORA
+          </a>
+
+          <div class="flex space-x-4 items-center opacity-60">
+            <img src="assets/images/seguro.png" alt="Seguro" class="h-8">
+            <span class="text-[10px] font-bold uppercase">Compra 100% Segura • Garantia de 7 Dias</span>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="container">
-      <p>Acesse Configurações para ativar o Windows.</p>
-    </div>
+  <footer class="py-10 text-center gray-400 text-[10px] font-bold uppercase tracking-widest opacity-30">
+    © 2026 Projeto Gênio Brasil • Todos os direitos reservados
   </footer>
 
   <script src="assets/js/script.js"></script>
