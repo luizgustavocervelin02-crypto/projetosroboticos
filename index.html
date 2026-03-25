@@ -11,7 +11,7 @@
     !function (f, b, e, v, n, t, s) {
       if (f.fbq) return; n = f.fbq = function () {
         n.callMethod ?
-        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
       };
       if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
       n.queue = []; t = b.createElement(e); t.async = !0;
@@ -41,7 +41,12 @@
   <link rel="dns-prefetch" href="https://fonts.gstatic.com">
   <link rel="preload" as="image" href="assets/images/hero-bg.webp" fetchpriority="high">
   <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap">
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+    media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap">
+  </noscript>
   <link rel="stylesheet" href="assets/css/index-production-1.css" media="all">
   <link rel="stylesheet" href="assets/css/index-production-2.css">
   <style>
@@ -215,8 +220,7 @@
                   class="absolute -top-3 -right-3 z-20 bg-primary text-primary-foreground px-3 py-1.5 rounded-md text-[10px] font-black uppercase tracking-wider shadow-[4px_4px_0px_0px_rgba(0,0,0,0.3)] transform rotate-3 border-2 border-white/20">
                   +100 PROJETOS</div>
                 <div class="w-full h-full overflow-hidden rounded-xl">
-                  <video controls class="w-full h-full object-cover" poster="assets/images/poster.png"
-                    preload="metadata">
+                  <video controls class="w-full h-full object-cover" poster="assets/images/proj1.png" preload="none">
                     <source src="assets/video/hero-video.mp4" type="video/mp4">
                     Seu navegador não suporta o player de vídeo.
                   </video>
@@ -323,68 +327,68 @@
               <div
                 class="inline-block mx-4 flex-shrink-0 w-64 md:w-80 h-64 md:h-80 rounded-2xl overflow-hidden border-4 border-primary/20 shadow-xl"
                 style="contain:paint;"><img src="assets/images/proj1.png" alt="Projeto 1"
-                  class="w-full h-full object-cover"></div>
+                  class="w-full h-full object-cover" loading="lazy" decoding="async" width="320" height="320"></div>
               <div
                 class="inline-block mx-4 flex-shrink-0 w-64 md:w-80 h-64 md:h-80 rounded-2xl overflow-hidden border-4 border-primary/20 shadow-xl"
                 style="contain:paint;"><img src="assets/images/proj2.png" alt="Projeto 2"
-                  class="w-full h-full object-cover"></div>
+                  class="w-full h-full object-cover" loading="lazy" decoding="async"></div>
               <div
                 class="inline-block mx-4 flex-shrink-0 w-64 md:w-80 h-64 md:h-80 rounded-2xl overflow-hidden border-4 border-primary/20 shadow-xl"
                 style="contain:paint;"><img src="assets/images/proj3.png" alt="Projeto 3"
-                  class="w-full h-full object-cover"></div>
+                  class="w-full h-full object-cover" loading="lazy" decoding="async"></div>
               <div
                 class="inline-block mx-4 flex-shrink-0 w-64 md:w-80 h-64 md:h-80 rounded-2xl overflow-hidden border-4 border-primary/20 shadow-xl"
                 style="contain:paint;"><img src="assets/images/proj4.png" alt="Projeto 4"
-                  class="w-full h-full object-cover"></div>
+                  class="w-full h-full object-cover" loading="lazy" decoding="async"></div>
               <div
                 class="inline-block mx-4 flex-shrink-0 w-64 md:w-80 h-64 md:h-80 rounded-2xl overflow-hidden border-4 border-primary/20 shadow-xl"
                 style="contain:paint;"><img src="assets/images/proj5.png" alt="Projeto 5"
-                  class="w-full h-full object-cover"></div>
+                  class="w-full h-full object-cover" loading="lazy" decoding="async"></div>
               <div
                 class="inline-block mx-4 flex-shrink-0 w-64 md:w-80 h-64 md:h-80 rounded-2xl overflow-hidden border-4 border-primary/20 shadow-xl"
                 style="contain:paint;"><img src="assets/images/proj6.png" alt="Projeto 6"
-                  class="w-full h-full object-cover"></div>
+                  class="w-full h-full object-cover" loading="lazy" decoding="async"></div>
               <div
                 class="inline-block mx-4 flex-shrink-0 w-64 md:w-80 h-64 md:h-80 rounded-2xl overflow-hidden border-4 border-primary/20 shadow-xl"
                 style="contain:paint;"><img src="assets/images/proj7.png" alt="Projeto 7"
-                  class="w-full h-full object-cover"></div>
+                  class="w-full h-full object-cover" loading="lazy" decoding="async"></div>
               <div
                 class="inline-block mx-4 flex-shrink-0 w-64 md:w-80 h-64 md:h-80 rounded-2xl overflow-hidden border-4 border-primary/20 shadow-xl"
                 style="contain:paint;"><img src="assets/images/proj8.png" alt="Projeto 8"
-                  class="w-full h-full object-cover"></div>
+                  class="w-full h-full object-cover" loading="lazy" decoding="async"></div>
               <div
                 class="inline-block mx-4 flex-shrink-0 w-64 md:w-80 h-64 md:h-80 rounded-2xl overflow-hidden border-4 border-primary/20 shadow-xl"
                 style="contain:paint;"><img src="assets/images/proj9.png" alt="Projeto 9"
-                  class="w-full h-full object-cover"></div>
+                  class="w-full h-full object-cover" loading="lazy" decoding="async"></div>
               <div
                 class="inline-block mx-4 flex-shrink-0 w-64 md:w-80 h-64 md:h-80 rounded-2xl overflow-hidden border-4 border-primary/20 shadow-xl"
                 style="contain:paint;"><img src="assets/images/proj10.png" alt="Projeto 10"
-                  class="w-full h-full object-cover"></div>
+                  class="w-full h-full object-cover" loading="lazy" decoding="async"></div>
               <div
                 class="inline-block mx-4 flex-shrink-0 w-64 md:w-80 h-64 md:h-80 rounded-2xl overflow-hidden border-4 border-primary/20 shadow-xl"
                 style="contain:paint;"><img src="assets/images/proj11.png" alt="Projeto 11"
-                  class="w-full h-full object-cover"></div>
+                  class="w-full h-full object-cover" loading="lazy" decoding="async"></div>
               <!-- duplicate for seamless loop -->
               <div
                 class="inline-block mx-4 flex-shrink-0 w-64 md:w-80 h-64 md:h-80 rounded-2xl overflow-hidden border-4 border-primary/20 shadow-xl"
                 style="contain:paint;"><img src="assets/images/proj1.png" alt="Projeto 12"
-                  class="w-full h-full object-cover"></div>
+                  class="w-full h-full object-cover" loading="lazy" decoding="async"></div>
               <div
                 class="inline-block mx-4 flex-shrink-0 w-64 md:w-80 h-64 md:h-80 rounded-2xl overflow-hidden border-4 border-primary/20 shadow-xl"
                 style="contain:paint;"><img src="assets/images/proj2.png" alt="Projeto 13"
-                  class="w-full h-full object-cover"></div>
+                  class="w-full h-full object-cover" loading="lazy" decoding="async"></div>
               <div
                 class="inline-block mx-4 flex-shrink-0 w-64 md:w-80 h-64 md:h-80 rounded-2xl overflow-hidden border-4 border-primary/20 shadow-xl"
                 style="contain:paint;"><img src="assets/images/proj3.png" alt="Projeto 14"
-                  class="w-full h-full object-cover"></div>
+                  class="w-full h-full object-cover" loading="lazy" decoding="async"></div>
               <div
                 class="inline-block mx-4 flex-shrink-0 w-64 md:w-80 h-64 md:h-80 rounded-2xl overflow-hidden border-4 border-primary/20 shadow-xl"
                 style="contain:paint;"><img src="assets/images/proj4.png" alt="Projeto 15"
-                  class="w-full h-full object-cover"></div>
+                  class="w-full h-full object-cover" loading="lazy" decoding="async"></div>
               <div
                 class="inline-block mx-4 flex-shrink-0 w-64 md:w-80 h-64 md:h-80 rounded-2xl overflow-hidden border-4 border-primary/20 shadow-xl"
                 style="contain:paint;"><img src="assets/images/proj5.png" alt="Projeto 16"
-                  class="w-full h-full object-cover"></div>
+                  class="w-full h-full object-cover" loading="lazy" decoding="async"></div>
             </div>
           </div>
 
@@ -617,12 +621,14 @@
             <div
               class="shadcn-card rounded-xl bg-card text-card-foreground shadow-sm overflow-hidden border-2 border-primary/20">
               <img src="assets/images/testimonial1.png" alt="Feedback de cliente"
-                class="w-full h-auto object-contain max-h-[600px]">
+                class="w-full h-auto object-contain max-h-[600px]" loading="lazy" decoding="async" width="450"
+                height="600">
             </div>
             <div
               class="shadcn-card rounded-xl bg-card text-card-foreground shadow-sm overflow-hidden border-2 border-primary/20">
               <img src="assets/images/testimonial2.png" alt="Feedback de cliente"
-                class="w-full h-auto object-contain max-h-[600px]">
+                class="w-full h-auto object-contain max-h-[600px]" loading="lazy" decoding="async" width="450"
+                height="600">
             </div>
           </div>
         </div>
