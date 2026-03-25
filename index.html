@@ -18,9 +18,7 @@
     fbq('init', '8358644300881620');
     fbq('track', 'PageView');
   </script>
-  <noscript><img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=8358644300881620&ev=PageView&noscript=1" /></noscript>
-  <!-- End Meta Pixel Code -->
+
 
   <script>
     window.pixelId = "69b769e20c8e9d7adb27d4cd";
@@ -58,35 +56,165 @@
 
 
   <!-- Critical CSS (First Fold) -->
-  /* Optimized Critical CSS - No dependencies */
-  :root { --background: 0 0% 98%; --foreground: 240 20% 12%; --primary: 2 80% 54%; --secondary: 40 93% 60%;
-  --primary-foreground: 0 0% 100%; --muted-foreground: 0 0% 45%; }
-  * { box-sizing: border-box; }
-  html, body { background-color: #f8f8f8; color: #111; font-family: 'Inter', -apple-system, sans-serif; margin: 0;
-  padding: 0; overflow-x: hidden; text-rendering: optimizeLegibility; }
-  .hero-section { position: relative; padding-top: 4rem; padding-bottom: 3rem; background: #f8f8f8; overflow: hidden;
-  min-height: 80vh; display: flex; align-items: center; }
-  .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
-  .hero-container { position: relative; z-index: 10; width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 1rem;
-  text-align: center; }
-  .hero-headline { font-family: 'Poppins', sans-serif; font-weight: 900; line-height: 1.1; margin: 0 auto 1.5rem;
-  max-width: 800px; font-size: 2.5rem; color: #111; opacity: 1 !important; visibility: visible !important; }
-  @media (min-width: 768px) { .hero-headline { font-size: 4.5rem; } .hero-section { padding-top: 6rem; padding-bottom:
-  6rem; } }
-  .hero-subtitle { font-family: 'Poppins', sans-serif; font-size: 0.75rem; color: #ef4444; opacity: 0.8; text-transform:
-  uppercase; letter-spacing: 0.2em; display: block; margin-bottom: 1rem; font-weight: 600; }
-  .hero-description { font-size: 1.125rem; font-weight: 700; color: #444; max-width: 600px; margin: 0 auto 2rem;
-  line-height: 1.5; }
-  .hero-cta { display: inline-block; background: #ef4444; color: #fff; font-family: 'Poppins', sans-serif; font-weight:
-  900; font-size: 1.25rem; padding: 1.25rem 2.5rem; border-radius: 9999px; text-decoration: none; box-shadow: 0 20px
-  40px rgba(239, 68, 68, 0.3); transition: transform 0.2s; border: none; cursor: pointer; width: 100%; max-width: 400px;
-  }
-  .hero-cta:active { transform: scale(0.98); }
-  .urgency-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 3rem; background:
-  linear-gradient(90deg, #ef4444, #f59e0b); display: flex; align-items: center; justify-content: center; color: #fff;
-  font-weight: 900; font-size: 0.875rem; padding: 0 1rem; }
-  .animate-pulse { animation: pulse 2s infinite; }
-  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .5; } }
+  <style>
+    /* Optimized Critical CSS - No dependencies */
+    :root {
+      --background: 0 0% 98%;
+      --foreground: 240 20% 12%;
+      --primary: 2 80% 54%;
+      --secondary: 40 93% 60%;
+      --primary-foreground: 0 0% 100%;
+      --muted-foreground: 0 0% 45%;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      background-color: #f8f8f8;
+      color: #111;
+      font-family: 'Inter', -apple-system, sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      text-rendering: optimizeLegibility;
+    }
+
+    .hero-section {
+      position: relative;
+      padding-top: 4rem;
+      padding-bottom: 3rem;
+      background: #f8f8f8;
+      overflow: hidden;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .hero-container {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      text-align: center;
+    }
+
+    .hero-headline {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 900;
+      line-height: 1.1;
+      margin: 0 auto 1.5rem;
+      max-width: 800px;
+      font-size: 2.5rem;
+      color: #111;
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    @media (min-width: 768px) {
+      .hero-headline {
+        font-size: 4.5rem;
+      }
+
+      .hero-section {
+        padding-top: 6rem;
+        padding-bottom:
+          6rem;
+      }
+    }
+
+    .hero-subtitle {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.75rem;
+      color: #ef4444;
+      opacity: 0.8;
+      text-transform:
+        uppercase;
+      letter-spacing: 0.2em;
+      display: block;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .hero-description {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: #444;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      line-height: 1.5;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background: #ef4444;
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      font-weight:
+        900;
+      font-size: 1.25rem;
+      padding: 1.25rem 2.5rem;
+      border-radius: 9999px;
+      text-decoration: none;
+      box-shadow: 0 20px 40px rgba(239, 68, 68, 0.3);
+      transition: transform 0.2s;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .hero-cta:active {
+      transform: scale(0.98);
+    }
+
+    .urgency-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      height: 3rem;
+      background:
+        linear-gradient(90deg, #ef4444, #f59e0b);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 900;
+      font-size: 0.875rem;
+      padding: 0 1rem;
+    }
+
+    .animate-pulse {
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: .5;
+      }
+    }
+  </style>
 
 
   <style>
@@ -242,6 +370,10 @@
 </head>
 
 <body>
+  <!-- Meta Pixel Code noscript fallback -->
+  <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=8358644300881620&ev=PageView&noscript=1" /></noscript>
+  <!-- End Meta Pixel Code -->
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0"
       style="display:none;visibility:hidden"></iframe></noscript>
