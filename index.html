@@ -35,20 +35,172 @@
   <meta property="og:description"
     content="Atividades simples, educativas e divertidas para pais que querem momentos especiais com seus filhos, sem gastar muito.">
   <meta property="og:type" content="website">
+  <!-- LCP Preloads -->
+  <link rel="preload" as="font" type="font/woff2"
+    href="https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLCz7Z1xlFQ.woff2" crossorigin>
+  <link rel="preload" as="image" href="assets/images/hero-bg.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/images/bonus1.webp" fetchpriority="high">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="dns-prefetch" href="https://fonts.googleapis.com">
   <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-  <link rel="preload" as="image" href="assets/images/hero-bg.webp" fetchpriority="high">
+
+  <!-- Critical CSS for Fold -->
+  <style>
+    :root {
+      --background: 0 0% 98%;
+      --foreground: 240 20% 12%;
+      --primary: 2 80% 54%;
+      --secondary: 40 93% 60%;
+      --primary-foreground: 0 0% 100%;
+      --card: 0 0% 96%;
+      --card-foreground: 240 20% 12%;
+      --muted-foreground: 0 0% 45%;
+      --radius: .5rem;
+      --shadow-xl: 0px 20px 40px -8px hsl(240 20% 12% / 0.16);
+    }
+
+    html,
+    body {
+      background-color: hsl(var(--background));
+      color: hsl(var(--foreground));
+      font-family: Inter, sans-serif;
+      margin: 0;
+      padding: 0
+    }
+
+    .font-heading {
+      font-family: Poppins, sans-serif
+    }
+
+    .relative {
+      position: relative
+    }
+
+    .absolute {
+      position: absolute
+    }
+
+    .inset-0 {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0
+    }
+
+    .z-0 {
+      z-index: 0
+    }
+
+    .z-10 {
+      z-index: 10
+    }
+
+    .w-full {
+      width: 100%
+    }
+
+    .h-full {
+      height: 100%
+    }
+
+    .object-cover {
+      object-fit: cover
+    }
+
+    .container {
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1rem;
+      padding-right: 1rem
+    }
+
+    .text-center {
+      text-align: center
+    }
+
+    .mx-auto {
+      margin-left: auto;
+      margin-right: auto
+    }
+
+    .max-w-4xl {
+      max-width: 56rem
+    }
+
+    .mt-12 {
+      margin-top: 3rem
+    }
+
+    .pt-6 {
+      padding-top: 1.5rem
+    }
+
+    .pb-12 {
+      padding-bottom: 3rem
+    }
+
+    .space-y-4>* {
+      margin-top: 1rem
+    }
+
+    .space-y-8>* {
+      margin-top: 2rem
+    }
+
+    h1 {
+      font-family: Poppins, sans-serif;
+      font-weight: 900;
+      line-height: 1.2;
+      margin: 0 auto;
+      max-width: 48rem;
+      font-size: 1.875rem
+    }
+
+    @media (min-width:768px) {
+      h1 {
+        font-size: 3.75rem
+      }
+    }
+
+    @media (min-width:1024px) {
+      h1 {
+        font-size: 4.5rem
+      }
+    }
+
+    .text-primary {
+      color: hsl(var(--primary))
+    }
+
+    .text-foreground {
+      color: hsl(var(--foreground))
+    }
+
+    /* Marquee */
+    @keyframes marquee {
+      0% {
+        transform: translateX(0)
+      }
+
+      to {
+        transform: translateX(-50%)
+      }
+    }
+
+    .animate-marquee-fast {
+      animation: marquee 15s linear infinite
+    }
+  </style>
+
+  <!-- Non-blocking Assets -->
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
     media="print" onload="this.media='all'">
-  <noscript>
-    <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap">
-  </noscript>
-  <link rel="stylesheet" href="assets/css/index-production-1.css" media="all">
-  <link rel="stylesheet" href="assets/css/index-production-2.css">
+  <link rel="stylesheet" href="assets/css/index-production-1.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="assets/css/index-production-2.css" media="print" onload="this.media='all'">
   <style>
     /* ── Marquee animations (required by React-rendered DOM) ── */
     @keyframes marquee {
@@ -148,8 +300,10 @@
 
       <!-- ──────────────────────────────── HERO ────────────────────────────── -->
       <section class="mt-12 pt-6 pb-12 md:pb-16 lg:pb-20 relative overflow-hidden bg-[#f8f8f8]"
-        data-testid="section-hero"
-        style="background-image:url('assets/images/hero-bg.webp');background-size:cover;background-position:center center;background-repeat:no-repeat;">
+        data-testid="section-hero">
+        <!-- Optimized Hero LCP Background -->
+        <img src="assets/images/hero-bg.webp" alt="" class="absolute inset-0 w-full h-full object-cover z-0"
+          fetchpriority="high" loading="eager" decoding="async">
         <div class="container mx-auto px-4 max-w-4xl">
           <div class="space-y-8 md:space-y-16 text-center">
             <div class="space-y-4 md:space-y-6">
