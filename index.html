@@ -194,14 +194,15 @@
     }
   </style>
 
-  <!-- Deferred Styles -->
-  <link rel="preload" href="assets/css/index-production-2.css" as="style" onload="this.rel='stylesheet'" />
-  <link rel="preload" href="assets/css/style.css" as="style" onload="this.rel='stylesheet'" />
-  <link rel="preload" href="assets/css/offer.css" as="style" onload="this.rel='stylesheet'" />
-
+  <!-- Deferred Styles Optimized (Evita double-fetch e render blocking) -->
   <link rel="stylesheet" href="assets/css/index-production-2.css" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="assets/css/style.css" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="assets/css/offer.css" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="assets/css/index-production-2.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/offer.css">
+  </noscript>
 
 </head>
 
@@ -221,9 +222,7 @@
 
       <!-- ──────────────────────────────── HERO ────────────────────────────── -->
       <section class="hero-section" data-testid="section-hero">
-        <img src="assets/images/hero-bg.webp"
-          srcset="assets/images/hero-bg-small.webp 600w, assets/images/hero-bg.webp 1200w"
-          sizes="(max-width: 600px) 100vw, 1200px" alt="Projetos Robóticos" class="hero-bg" fetchpriority="high"
+        <img src="assets/images/hero-bg.webp" alt="Projetos Robóticos" class="hero-bg" fetchpriority="high"
           loading="eager" width="1200" height="800" decoding="sync">
 
         <div class="hero-container">
@@ -867,7 +866,7 @@
 
         <div class="guarantee-badge-mini" style="margin-top:1.5rem;">
           <img src="assets/images/garantia-badge.png" alt="7 Dias" style="width:30px; height:auto;" width="30"
-            height="30">
+            height="30" loading="lazy">
           <span>Sua satisfação garantida ou seu dinheiro de volta</span>
         </div>
       </div>
