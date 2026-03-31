@@ -257,9 +257,7 @@
           </div>
 
           <div style="margin-top:1rem;">
-            <a href="#video-container" style="text-decoration:none;">
-              <button class="hero-cta">QUERO ACESSAR AGORA</button>
-            </a>
+            <button class="hero-cta" onclick="startVSL()">QUERO ACESSAR AGORA</button>
           </div>
 
 
@@ -1013,6 +1011,13 @@
         const isShown = content.style.display === 'block';
         content.style.display = isShown ? 'none' : 'block';
         if (icon) icon.style.transform = isShown ? 'rotate(0deg)' : 'rotate(180deg)';
+      };
+
+      window.startVSL = () => {
+        const target = document.getElementById('video-container');
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+        const facade = document.getElementById('wistia-facade');
+        if (facade) facade.click();
       };
 
       const load = (src, opts = {}) => {
