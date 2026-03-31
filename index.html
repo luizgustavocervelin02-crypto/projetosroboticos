@@ -14,9 +14,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.utmify.com.br">
+  <link rel="preconnect" href="https://fast.wistia.com">
 
 
   <link rel="preload" as="image" href="assets/images/hero-bg_opt.webp" fetchpriority="high">
+  <link rel="prefetch" as="image" href="https://fast.wistia.com/embed/medias/7ph8slp6pb/swatch">
   <link rel="preload" as="font" type="font/woff2"
     href="https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLCz7Z1xlFQ.woff2" crossorigin>
 
@@ -1015,7 +1017,9 @@
 
       const playVideo = (f) => {
         if (!f || f.dataset.loaded) return;
-        f.innerHTML = '<iframe src="https://streamable.com/e/nrio23?autoplay=1&muted=0" frameborder="0" width="100%" height="100%" allow="autoplay; fullscreen" style="width:100%; height:100%; position:absolute; left:0px; top:0px; overflow:hidden;"></iframe>';
+        f.innerHTML = '<wistia-player media-id="7ph8slp6pb" aspect="0.5625" videoFoam="true" autoPlay="true" muted="false" playsinline="true"></wistia-player>';
+        load("https://fast.wistia.com/player.js");
+        load("https://fast.wistia.com/embed/7ph8slp6pb.js", { type: "module" });
         f.dataset.loaded = "true";
       };
 
