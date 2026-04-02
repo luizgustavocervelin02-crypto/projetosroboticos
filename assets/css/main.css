@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 :root {
     --bg-light: #FFFCF9;
     /* More creamy like the ref */
@@ -172,32 +176,25 @@ h3 {
 }
 
 .vsl-container {
-    max-width: 320px;
-    /* Vertical video looks best when constrained on desktop */
-    margin: 30px auto;
+    max-width: 280px;
+    /* More compact for mobile-first feel */
+    margin: 20px auto;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
     background: #000;
 }
 
-@media (max-width: 640px) {
+@media (min-width: 768px) {
     .vsl-container {
-        max-width: 100%;
-        margin: 20px auto;
+        max-width: 320px;
+        margin: 30px auto;
     }
 }
 
 .hero-icon {
     font-size: 2.2rem;
     margin-bottom: 15px;
-}
-
-.hero h1 span {
-    background: linear-gradient(90deg, var(--primary), var(--accent-blue));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 
 /* --- Bullet Items --- */
@@ -505,6 +502,7 @@ h3 {
     padding: 22px 28px;
     user-select: none;
     font-size: 1.05rem;
+    line-height: 1.3;
 }
 
 .faq-question .num {
@@ -515,8 +513,8 @@ h3 {
 
 .faq-answer {
     display: none;
-    padding: 0 28px 24px 68px;
-    /* Offset for the number */
+    padding: 0 28px 24px;
+    /* Removed offset as num is gone */
     color: var(--text-muted);
     font-size: 0.95rem;
     line-height: 1.6;
@@ -581,6 +579,27 @@ h3 {
     display: flex;
     align-items: center;
     gap: 12px;
+}
+
+.title-primary {
+    font-size: 1.8rem;
+    line-height: 1.2;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+.title-primary span {
+    color: var(--primary);
+    display: block;
+    /* Force new line on mobile for impact */
+    margin-top: 8px;
+}
+
+@media (min-width: 768px) {
+    .title-primary {
+        font-size: 2.8rem;
+    }
 }
 
 .testimonial-info h4 {
