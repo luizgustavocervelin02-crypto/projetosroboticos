@@ -441,46 +441,50 @@
       });
     });
 
-    // Upsell Modal Logic
+    // --- Upsell Modal Logic ---
     const basicButtons = document.querySelectorAll('a[href*="checkout.php?product_id=J2zfq0"]');
     const upsellModal = document.getElementById('upsell-modal');
     const closeModal = document.getElementById('close-modal');
     const declineUpsell = document.getElementById('decline-upsell');
     const basicOriginalLink = "https://pay.lowify.com.br/checkout.php?product_id=J2zfq0";
 
-    basicButtons.forEach(btn => {
-      btn.addEventListener('click', function (e) {
-        e.preventDefault();
-        if (upsellModal) {
-          upsellModal.style.display = 'flex';
-        }
-      });
-    });
-
-    const closeActions = [closeModal, declineUpsell];
-    closeActions.forEach(btn => {
-      if (btn) {
+    if (basicButtons.length > 0 && upsellModal) {
+      basicButtons.forEach(btn => {
         btn.addEventListener('click', function (e) {
           e.preventDefault();
-          window.location.href = basicOriginalLink;
+          upsellModal.style.display = 'flex';
+          document.body.style.overflow = 'hidden'; // Prevent scroll
         });
+      });
+    }
+
+    function closeAndRedirectToBasic() {
+      if (upsellModal) {
+        upsellModal.style.display = 'none';
+        document.body.style.overflow = '';
       }
-    });
+      window.location.href = basicOriginalLink;
+    }
+
+    if (closeModal) closeModal.addEventListener('click', closeAndRedirectToBasic);
+    if (declineUpsell) declineUpsell.addEventListener('click', closeAndRedirectToBasic);
 
     if (upsellModal) {
       upsellModal.addEventListener('click', function (e) {
         if (e.target === upsellModal) {
-          window.location.href = basicOriginalLink;
+          closeAndRedirectToBasic();
         }
       });
     }
   </script>
 
+  <!-- Upsell Modal Structure -->
   <div id="upsell-modal" class="modal-overlay">
     <div class="modal-content">
-      <button class="modal-close" id="close-modal">&times;</button>
+      <button class="modal-close" id="close-modal" aria-label="Fechar">&times;</button>
+
       <div class="modal-header">
-        <div class="modal-badge">🎁</div>
+        <span class="modal-badge">🎁</span>
         <h2 class="modal-title">Espere! Temos uma oferta especial para você</h2>
         <p class="modal-subtitle">Por apenas <strong>R$ 4,90 a mais</strong>, você pode liberar o Plano Premium completo
           do Mini Engenheiros e garantir muito mais conteúdo, variedade e diversão para o seu filho.</p>
@@ -491,6 +495,7 @@
           <span class="star-icon">⭐</span>
           <h3>Plano Premium Completo</h3>
         </div>
+
         <ul class="upsell-list">
           <li>Acesso imediato ao Mini Engenheiros</li>
           <li>Guia de Projetos Robóticos</li>
@@ -498,6 +503,7 @@
           <li>Materiais simples e fáceis de encontrar</li>
           <li>Conteúdo vitalício</li>
         </ul>
+
         <div class="bonus-section">
           <p class="bonus-title">🎁 Bônus exclusivos:</p>
           <ul class="upsell-list bonus-list">
@@ -510,16 +516,20 @@
       </div>
 
       <div class="modal-pricing">
-        <div class="price-old">De R$ 19,90</div>
-        <div class="price-new">R$ 14,90</div>
-        <p class="price-tagline">Upgrade exclusivo por tempo limitado</p>
+        <span class="price-old">De R$ 19,90</span>
+        <h3 class="price-new">R$ 14,90</h3>
+        <span class="price-tagline">Upgrade exclusivo por tempo limitado</span>
       </div>
 
-      <a href="https://pay.lowify.com.br/go.php?offer=tgd97pf" class="btn btn-primary btn-block modal-btn">QUERO O PLANO
-        PREMIUM</a>
-      <a href="#" class="modal-decline" id="decline-upsell">Não, obrigado. Quero continuar com o Plano Básico.</a>
+      <a href="https://pay.lowify.com.br/go.php?offer=tgd97pf" class="btn modal-btn">QUERO O PLANO PREMIUM</a>
+
+      <div style="margin-top: 10px;">
+        <a href="javascript:void(0)" class="modal-decline" id="decline-upsell">Não, obrigado. Quero continuar com o
+          Plano Básico.</a>
+      </div>
     </div>
   </div>
+
 </body>
 
 </html>
