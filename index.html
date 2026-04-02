@@ -2,6 +2,20 @@
 <html lang="pt-BR">
 
 <head>
+
+  <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck data-utmify-prevent-subids
+    async defer></script>
+
+  <script>
+    window.pixelId = "69b769e20c8e9d7adb27d4cd";
+    var a = document.createElement("script");
+    a.setAttribute("async", "");
+    a.setAttribute("defer", "");
+    a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+    document.head.appendChild(a);
+  </script>
+
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
   <title>Mini Engenheiros - Transforme Tela em Criatividade</title>
@@ -24,9 +38,7 @@
     })(window, document, "clarity", "script", "w5egb6mjts");
   </script>
 
-  <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck data-utmify-prevent-subids
-    async defer></script>
-</head>
+
 
 <body>
 
@@ -428,7 +440,84 @@
         q.querySelector('span').textContent = isVisible ? '+' : '−';
       });
     });
+
+    // Upsell Modal Logic
+    const basicBtn = document.querySelector('a[href*="checkout.php?product_id=J2zfq0"]');
+    const upsellModal = document.getElementById('upsell-modal');
+    const closeModal = document.getElementById('close-modal');
+    const declineUpsell = document.getElementById('decline-upsell');
+    const basicOriginalLink = "https://pay.lowify.com.br/checkout.php?product_id=J2zfq0";
+
+    if (basicBtn) {
+      basicBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        upsellModal.style.display = 'flex';
+      });
+    }
+
+    const closeActions = [closeModal, declineUpsell];
+    closeActions.forEach(btn => {
+      if (btn) {
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          window.location.href = basicOriginalLink;
+        });
+      }
+    });
+
+    if (upsellModal) {
+      upsellModal.addEventListener('click', function (e) {
+        if (e.target === upsellModal) {
+          window.location.href = basicOriginalLink;
+        }
+      });
+    }
   </script>
+
+  <div id="upsell-modal" class="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close" id="close-modal">&times;</button>
+      <div class="modal-header">
+        <div class="modal-badge">🎁</div>
+        <h2 class="modal-title">Espere! Temos uma oferta especial para você</h2>
+        <p class="modal-subtitle">Por apenas <strong>R$ 4,90 a mais</strong>, você pode liberar o Plano Premium completo
+          do Mini Engenheiros e garantir muito mais conteúdo, variedade e diversão para o seu filho.</p>
+      </div>
+
+      <div class="upsell-card">
+        <div class="upsell-card-header">
+          <span class="star-icon">⭐</span>
+          <h3>Plano Premium Completo</h3>
+        </div>
+        <ul class="upsell-list">
+          <li>Acesso imediato ao Mini Engenheiros</li>
+          <li>Guia de Projetos Robóticos</li>
+          <li>Mais de 100 projetos em vídeo</li>
+          <li>Materiais simples e fáceis de encontrar</li>
+          <li>Conteúdo vitalício</li>
+        </ul>
+        <div class="bonus-section">
+          <p class="bonus-title">🎁 Bônus exclusivos:</p>
+          <ul class="upsell-list bonus-list">
+            <li>Guia de Robótica para Iniciantes</li>
+            <li>100 Atividades Criativas</li>
+            <li>Piadas Infantis</li>
+            <li>27 Mágicas com Cartas</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="modal-pricing">
+        <div class="price-old">De R$ 19,90</div>
+        <div class="price-new">R$ 14,90</div>
+        <p class="price-tagline">Upgrade exclusivo por tempo limitado</p>
+      </div>
+
+      <a href="https://pay.lowify.com.br/go.php?offer=tgd97pf" class="btn btn-primary btn-block modal-btn">QUERO O PLANO
+        PREMIUM</a>
+      <a href="#" class="modal-decline" id="decline-upsell">Não, obrigado. Quero continuar com o Plano Básico.</a>
+    </div>
+  </div>
 </body>
 
 </html>
