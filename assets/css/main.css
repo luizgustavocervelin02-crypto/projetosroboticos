@@ -151,13 +151,16 @@ h3 {
 
 /* --- Urgency Bar --- */
 .urgency-bar {
-    background: #FFF;
+    background: #DC2626;
+    /* Strong Red */
+    color: white;
     text-align: center;
-    padding: 12px;
-    font-weight: 700;
-    font-size: 0.8rem;
-    border-bottom: 1px solid #EEE;
-    color: var(--primary);
+    padding: 14px;
+    font-weight: 800;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 10px rgba(220, 38, 38, 0.2);
 }
 
 /* --- Hero --- */
@@ -253,6 +256,27 @@ h3 {
     100% {
         transform: translateX(-50%);
     }
+}
+
+@keyframes pulse-soft {
+    0% {
+        transform: scale(1.03);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 15px 40px rgba(0, 210, 142, 0.2);
+    }
+
+    100% {
+        transform: scale(1.03);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+    }
+}
+
+.pulse-ani {
+    animation: pulse-soft 3s infinite ease-in-out;
 }
 
 .carousel-item {
@@ -447,10 +471,11 @@ h3 {
 .faq-item {
     background: var(--white);
     border-radius: 16px;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
     padding: 0;
     overflow: hidden;
     box-shadow: var(--shadow-soft);
+    border: 1px solid #F3F4F6;
 }
 
 .faq-question {
@@ -459,13 +484,21 @@ h3 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 24px;
+    padding: 22px 28px;
     user-select: none;
+    font-size: 1.05rem;
+}
+
+.faq-question .num {
+    color: var(--primary);
+    margin-right: 12px;
+    opacity: 0.6;
 }
 
 .faq-answer {
     display: none;
-    padding: 0 24px 20px;
+    padding: 0 28px 24px 68px;
+    /* Offset for the number */
     color: var(--text-muted);
     font-size: 0.95rem;
     line-height: 1.6;
