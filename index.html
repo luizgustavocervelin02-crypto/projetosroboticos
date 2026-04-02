@@ -441,29 +441,37 @@
       });
     });
 
-    // --- Upsell Modal Logic ---
-    const basicButtons = document.querySelectorAll('a[href*="checkout.php?product_id=J2zfq0"]');
+    // --- Upsell Modal Logic (Robust Event Delegation) ---
     const upsellModal = document.getElementById('upsell-modal');
     const closeModal = document.getElementById('close-modal');
     const declineUpsell = document.getElementById('decline-upsell');
-    const basicOriginalLink = "https://pay.lowify.com.br/checkout.php?product_id=J2zfq0";
+    // Default link, will be updated with the clicked link (to preserve UTMs)
+    let currentBasicLink = "https://pay.lowify.com.br/checkout.php?product_id=J2zfq0";
 
-    if (basicButtons.length > 0 && upsellModal) {
-      basicButtons.forEach(btn => {
-        btn.addEventListener('click', function (e) {
+    if (upsellModal) {
+      document.addEventListener('click', function (e) {
+        // Find if the click was on or inside a Basic Plan link
+        const basicBtn = e.target.closest('a[href*="checkout.php?product_id=J2zfq0"]');
+
+        if (basicBtn) {
           e.preventDefault();
+          // Capture the actual href which might have been modified by UTMify/tracking scripts
+          currentBasicLink = basicBtn.getAttribute('href');
+
           upsellModal.style.display = 'flex';
           document.body.style.overflow = 'hidden'; // Prevent scroll
-        });
+        }
       });
     }
 
-    function closeAndRedirectToBasic() {
+    function closeAndRedirectToBasic(e) {
+      if (e) e.preventDefault();
       if (upsellModal) {
         upsellModal.style.display = 'none';
         document.body.style.overflow = '';
       }
-      window.location.href = basicOriginalLink;
+      // Redirect to the captured link (keeping UTM parameters)
+      window.location.href = currentBasicLink;
     }
 
     if (closeModal) closeModal.addEventListener('click', closeAndRedirectToBasic);
@@ -476,6 +484,7 @@
         }
       });
     }
+
   </script>
 
   <!-- Upsell Modal Structure -->
