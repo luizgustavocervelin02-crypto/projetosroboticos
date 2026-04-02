@@ -442,18 +442,20 @@
     });
 
     // Upsell Modal Logic
-    const basicBtn = document.querySelector('a[href*="checkout.php?product_id=J2zfq0"]');
+    const basicButtons = document.querySelectorAll('a[href*="checkout.php?product_id=J2zfq0"]');
     const upsellModal = document.getElementById('upsell-modal');
     const closeModal = document.getElementById('close-modal');
     const declineUpsell = document.getElementById('decline-upsell');
     const basicOriginalLink = "https://pay.lowify.com.br/checkout.php?product_id=J2zfq0";
 
-    if (basicBtn) {
-      basicBtn.addEventListener('click', function (e) {
+    basicButtons.forEach(btn => {
+      btn.addEventListener('click', function (e) {
         e.preventDefault();
-        upsellModal.style.display = 'flex';
+        if (upsellModal) {
+          upsellModal.style.display = 'flex';
+        }
       });
-    }
+    });
 
     const closeActions = [closeModal, declineUpsell];
     closeActions.forEach(btn => {
