@@ -9,19 +9,24 @@
   <meta name="description"
     content="Mais de 100 projetos de robótica para fazer em casa. Tire seu filho do excesso de telas com atividades criativas.">
 
-  <!-- 1. Preconnects síncronos -->
+  <!-- 1. Preconnects e Preloads Síncronos -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <!-- 2. Preload PRIORITÁRIO do LCP (Poster) -->
-  <link rel="preload" href="assets/images/robot-main_opt.webp" as="image" fetchpriority="high">
+  <!-- 2. Preload do LCP Otimizado (31KB apenas) -->
+  <link rel="preload" href="assets/images/hero-lcp-mobile.webp" as="image" fetchpriority="high">
 
   <!-- 3. Preload de Fontes Críticas -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap" as="style">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 
-  <!-- 4. CSS Crítico de Layout (Zero CLS e Estabilidade) -->
+  <!-- 4. CSS Crítico e Estrutural (Inline para Zero FCP Delay) -->
   <style>
+    :root {
+      --primary: #5B4BFB;
+      --bg-light: #FFFCF9;
+    }
+
     .vsl-container {
       background: #000;
       width: 100%;
@@ -38,12 +43,21 @@
       font-weight: 800;
       color: #5B4BFB;
       line-height: 1.2;
+      text-align: center;
+    }
+
+    .hero {
+      padding-top: 30px;
+      text-align: center;
+      background: var(--bg-light);
     }
   </style>
 
-  <!-- Styles -->
-  <link rel="preload" href="assets/css/main.css" as="style">
-  <link rel="stylesheet" href="assets/css/main.css">
+  <!-- 5. Stylesheets (Deferidas para não bloquear LCP) -->
+  <link rel="stylesheet" href="assets/css/main.css" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="assets/css/main.css">
+  </noscript>
 
   <script type="text/javascript">
     (function (c, l, a, r, i, t, y) {
@@ -88,8 +102,8 @@
       <div class="vsl-container" id="vsl-facade" onclick="loadStreamableVideo()"
         style="background: #000; position: relative; cursor: pointer; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.2); max-width: 200px; aspect-ratio: 9/16; margin: 0 auto 20px;">
 
-        <!-- Poster prioritário (Elemento LCP Fixo) -->
-        <img src="assets/images/robot-main_opt.webp" alt="Assistir Vídeo Mini Engenheiros" class="vsl-poster"
+        <!-- Poster prioritário (LCP Reduzido para 31KB) -->
+        <img src="assets/images/hero-lcp-mobile.webp" alt="Assistir Vídeo Mini Engenheiros" class="vsl-poster"
           width="200" height="355" loading="eager" fetchpriority="high" decoding="async"
           style="width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transition: opacity 0.3s;">
 
