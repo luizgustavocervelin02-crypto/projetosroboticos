@@ -25,10 +25,13 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap" as="style">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 
   <!-- Styles -->
+  <link rel="preload" href="assets/css/main.css" as="style">
   <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="preload" href="assets/images/robot-main_opt.webp" as="image" fetchpriority="high">
 
   <script type="text/javascript">
     (function (c, l, a, r, i, t, y) {
@@ -69,16 +72,26 @@
         passo.
       </p>
 
-      <!-- Vertical VSL Container - COMPACT FOR ATF -->
-      <div class="vsl-container" style="max-width: 200px; margin-top: 0; margin-bottom: 20px;">
-        <p
-          style="font-size: 0.65rem; color: var(--primary); font-weight: 800; margin-bottom: 5px; text-transform: uppercase;">
-          🔊 Ative o som</p>
-        <div style="position:relative; width:100%; height:0px; padding-bottom:177.778%"><iframe
-            allow="fullscreen;autoplay" allowfullscreen height="100%"
-            src="https://streamable.com/e/ezorkq?autoplay=1&muted=0&loop=0" width="100%"
-            style="border:none; width:100%; height:100%; position:absolute; left:0px; top:0px; overflow:hidden;"></iframe>
+      <!-- Vertical VSL Facade - Otimizado para LCP -->
+      <div class="vsl-container" id="vsl-facade" onclick="loadStreamableVideo()"
+        style="background: #000; position: relative; cursor: pointer; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.2); max-width: 200px; aspect-ratio: 9/16; margin: 0 auto 20px;">
+
+        <!-- Poster prioritário -->
+        <img src="assets/images/robot-main_opt.webp" alt="Assistir Vídeo Mini Engenheiros" class="vsl-poster"
+          width="200" height="355" loading="eager" fetchpriority="high"
+          style="width: 100%; height: 100%; object-fit: cover; opacity: 0.7; transition: opacity 0.3s;">
+
+        <!-- Botão de Play -->
+        <div class="vsl-play-btn"
+          style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 56px; height: 56px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 20px rgba(91, 75, 251, 0.4); z-index: 2;">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="30" height="30">
+            <path d="M8 5v14l11-7z" />
+          </svg>
         </div>
+
+        <div
+          style="position: absolute; bottom: 12px; width: 100%; text-align: center; color: white; font-size: 0.65rem; font-weight: 800; text-transform: uppercase;">
+          🔊 Ative o Som</div>
       </div>
 
       <!-- Main CTA - Now BELOW the Fold/VSL but intended to be seen ATF due to compact UI -->
@@ -200,60 +213,60 @@
     <div class="carousel-wrapper">
       <div class="carousel-track" id="carousel-track">
         <div class="carousel-item">
-          <img src="assets/images/proj-mao.png" alt="Mão Robótica">
+          <img src="assets/images/proj-mao.png" alt="Mão Robótica" width="200" height="250" loading="lazy">
           <div class="carousel-label">MÃO ROBÓTICA</div>
         </div>
         <div class="carousel-item">
-          <img src="assets/images/proj-robot.png" alt="Robô de Papelão">
+          <img src="assets/images/proj-robot.png" alt="Robô de Papelão" width="200" height="250" loading="lazy">
           <div class="carousel-label">ROBÔ DE PAPELÃO</div>
         </div>
         <div class="carousel-item">
-          <img src="assets/images/proj1_opt.webp" alt="Projeto">
+          <img src="assets/images/proj1_opt.webp" alt="Projeto" width="200" height="250" loading="lazy">
           <div class="carousel-label orange">TREM ELÉTRICO</div>
         </div>
         <div class="carousel-item">
-          <img src="assets/images/proj4_opt.webp" alt="Elevador">
+          <img src="assets/images/proj4_opt.webp" alt="Elevador" width="200" height="250" loading="lazy">
           <div class="carousel-label orange">ELEVADOR ELETRÔNICO</div>
         </div>
         <div class="carousel-item">
-          <img src="assets/images/proj8_opt.webp" alt="Carro Motorizado">
+          <img src="assets/images/proj8_opt.webp" alt="Carro Motorizado" width="200" height="250" loading="lazy">
           <div class="carousel-label orange">BOMBA DE ÁGUA</div>
         </div>
         <div class="carousel-item">
-          <img src="assets/images/proj2_opt.webp" alt="Projeto">
+          <img src="assets/images/proj2_opt.webp" alt="Projeto" width="200" height="250" loading="lazy">
           <div class="carousel-label">E MUITO MAIS! (+100 Projetos)</div>
         </div>
         <div class="carousel-item">
-          <img src="assets/images/proj10_opt.webp" alt="Projeto">
+          <img src="assets/images/proj10_opt.webp" alt="Projeto" width="200" height="250" loading="lazy">
           <div class="carousel-label orange">HELICÓPTERO</div>
         </div>
         <!-- Duplicate for loop -->
         <div class="carousel-item">
-          <img src="assets/images/proj-mao.png" alt="Mão Robótica">
+          <img src="assets/images/proj-mao.png" alt="Mão Robótica" width="200" height="250" loading="lazy">
           <div class="carousel-label">MÃO ROBÓTICA</div>
         </div>
         <div class="carousel-item">
-          <img src="assets/images/proj-robot.png" alt="Robô de Papelão">
+          <img src="assets/images/proj-robot.png" alt="Robô de Papelão" width="200" height="250" loading="lazy">
           <div class="carousel-label">ROBÔ DE PAPELÃO</div>
         </div>
         <div class="carousel-item">
-          <img src="assets/images/proj1_opt.webp" alt="Projeto">
+          <img src="assets/images/proj1_opt.webp" alt="Projeto" width="200" height="250" loading="lazy">
           <div class="carousel-label orange">TREM ELÉTRICO</div>
         </div>
         <div class="carousel-item">
-          <img src="assets/images/proj4_opt.webp" alt="Elevador">
+          <img src="assets/images/proj4_opt.webp" alt="Elevador" width="200" height="250" loading="lazy">
           <div class="carousel-label orange">ELEVADOR ELETRÔNICO</div>
         </div>
         <div class="carousel-item">
-          <img src="assets/images/proj8_opt.webp" alt="Carro Motorizado">
+          <img src="assets/images/proj8_opt.webp" alt="Carro Motorizado" width="200" height="250" loading="lazy">
           <div class="carousel-label orange">BOMBA DE ÁGUA</div>
         </div>
         <div class="carousel-item">
-          <img src="assets/images/proj2_opt.webp" alt="Projeto">
+          <img src="assets/images/proj2_opt.webp" alt="Projeto" width="200" height="250" loading="lazy">
           <div class="carousel-label">E MUITO MAIS! (+100 Projetos)</div>
         </div>
         <div class="carousel-item">
-          <img src="assets/images/proj10_opt.webp" alt="Projeto">
+          <img src="assets/images/proj10_opt.webp" alt="Projeto" width="200" height="250" loading="lazy">
           <div class="carousel-label orange">HELICÓPTERO</div>
         </div>
       </div>
@@ -277,14 +290,16 @@
 
       <div class="testimonial-grid">
         <div class="testimonial-card" style="padding: 10px;">
-          <img src="assets/images/depo-patricia.png" alt="Depoimento Patrícia"
-            style="width: 100%; border-radius: 12px;">
+          <img src="assets/images/depo-patricia.png" alt="Depoimento Patrícia" style="width: 100%; border-radius: 12px;"
+            width="350" height="400" loading="lazy">
         </div>
         <div class="testimonial-card" style="padding: 10px;">
-          <img src="assets/images/depo-juliana.png" alt="Depoimento Juliana" style="width: 100%; border-radius: 12px;">
+          <img src="assets/images/depo-juliana.png" alt="Depoimento Juliana" style="width: 100%; border-radius: 12px;"
+            width="350" height="400" loading="lazy">
         </div>
         <div class="testimonial-card" style="padding: 10px;">
-          <img src="assets/images/depo-carla.png" alt="Depoimento Carla" style="width: 100%; border-radius: 12px;">
+          <img src="assets/images/depo-carla.png" alt="Depoimento Carla" style="width: 100%; border-radius: 12px;"
+            width="350" height="400" loading="lazy">
         </div>
       </div>
     </div>
@@ -302,22 +317,26 @@
       <div class="bonus-grid">
         <div class="bonus-card">
           <span class="bonus-tag">GRÁTIS</span>
-          <div class="bonus-img-wrapper"><img src="assets/images/bonus1_new.png" alt="Guia Robótica"></div>
+          <div class="bonus-img-wrapper"><img src="assets/images/bonus1_new.png" alt="Guia Robótica" width="200"
+              height="250" loading="lazy"></div>
           <strong style="font-size: 0.85rem;">Guia de Robótica Iniciante</strong>
         </div>
         <div class="bonus-card">
           <span class="bonus-tag">GRÁTIS</span>
-          <div class="bonus-img-wrapper"><img src="assets/images/bonus2_new.png" alt="100 Atividades"></div>
+          <div class="bonus-img-wrapper"><img src="assets/images/bonus2_new.png" alt="100 Atividades" width="200"
+              height="250" loading="lazy"></div>
           <strong style="font-size: 0.85rem;">100 Atividades Criativas</strong>
         </div>
         <div class="bonus-card">
           <span class="bonus-tag">GRÁTIS</span>
-          <div class="bonus-img-wrapper"><img src="assets/images/bonus3_new.png" alt="Piadas"></div>
+          <div class="bonus-img-wrapper"><img src="assets/images/bonus3_new.png" alt="Piadas" width="200" height="250"
+              loading="lazy"></div>
           <strong style="font-size: 0.85rem;">Piadas Infantis</strong>
         </div>
         <div class="bonus-card">
           <span class="bonus-tag">GRÁTIS</span>
-          <div class="bonus-img-wrapper"><img src="assets/images/bonus4_new.png" alt="Mágicas"></div>
+          <div class="bonus-img-wrapper"><img src="assets/images/bonus4_new.png" alt="Mágicas" width="200" height="250"
+              loading="lazy"></div>
           <strong style="font-size: 0.85rem;">Mágicas com Cartas</strong>
         </div>
       </div>
@@ -369,7 +388,8 @@
       <!-- Guarantee Highlight -->
       <div
         style="margin-top: 60px; padding: 40px; background: white; border-radius: 32px; border: 1px dashed var(--primary);">
-        <img src="assets/images/garantia-badge_opt.webp" alt="Garantia" style="width: 100px; margin-bottom: 20px;">
+        <img src="assets/images/garantia-badge_opt.webp" alt="Garantia" style="width: 100px; margin-bottom: 20px;"
+          width="100" height="100" loading="lazy">
         <h3 style="margin-bottom: 10px;">Garantia Incondicional de 7 Dias</h3>
         <p style="color: var(--text-muted);">Se dentro de 7 dias você entender que o Mini Engenheiros não é para o seu
           filho, basta nos enviar um e-mail ou mensagem e devolvemos 100% do seu dinheiro. Sem perguntas, sem
@@ -425,6 +445,22 @@
   </footer>
 
   <script>
+    // Função para carregar o VSL apenas sob demanda (Melhora muito o LCP)
+    function loadStreamableVideo() {
+      const container = document.getElementById('vsl-facade');
+      container.innerHTML = `
+        <div style="position:relative; width:100%; height:100%;">
+            <iframe src="https://streamable.com/e/ezorkq?autoplay=1" 
+                    frameborder="0" 
+                    width="100%" 
+                    height="100%" 
+                    allow="autoplay;攻击 fullscreen" 
+                    style="position:absolute; top:0; left:0; width:100%; height:100%; border-radius:20px;">
+            </iframe>
+        </div>
+    `;
+    }
+
     function updateDate() {
       const today = new Date();
       const dateStr = today.toLocaleDateString('pt-BR');

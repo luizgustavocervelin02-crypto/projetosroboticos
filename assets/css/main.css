@@ -170,26 +170,27 @@ h3 {
 /* --- Hero --- */
 .hero {
     padding-top: 40px;
-    /* Reduced to accommodate VSL */
     position: relative;
     overflow: hidden;
 }
 
 .vsl-container {
     max-width: 280px;
-    /* More compact for mobile-first feel */
     margin: 20px auto;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
     background: #000;
+    aspect-ratio: 9/16;
 }
 
-@media (min-width: 768px) {
-    .vsl-container {
-        max-width: 320px;
-        margin: 30px auto;
-    }
+.vsl-play-btn {
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.vsl-container:hover .vsl-play-btn {
+    transform: translate(-50%, -50%) scale(1.1);
+    background-color: var(--secondary-dark) !important;
 }
 
 .hero-icon {
