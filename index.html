@@ -3,35 +3,47 @@
 
 <head>
 
-  <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck data-utmify-prevent-subids
-    async defer></script>
-
-  <script>
-    window.pixelId = "69b769e20c8e9d7adb27d4cd";
-    var a = document.createElement("script");
-    a.setAttribute("async", "");
-    a.setAttribute("defer", "");
-    a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-    document.head.appendChild(a);
-  </script>
-
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
   <title>Mini Engenheiros - Transforme Tela em Criatividade</title>
   <meta name="description"
     content="Mais de 100 projetos de robótica para fazer em casa. Tire seu filho do excesso de telas com atividades criativas.">
 
-  <!-- Fonts -->
+  <!-- 1. Preconnects síncronos -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- 2. Preload PRIORITÁRIO do LCP (Poster) -->
+  <link rel="preload" href="assets/images/robot-main_opt.webp" as="image" fetchpriority="high">
+
+  <!-- 3. Preload de Fontes Críticas -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap" as="style">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!-- 4. CSS Crítico de Layout (Zero CLS e Estabilidade) -->
+  <style>
+    .vsl-container {
+      background: #000;
+      width: 100%;
+      max-width: 200px;
+      aspect-ratio: 9/16;
+      margin: 0 auto 20px;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    }
+
+    .title-primary {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      color: #5B4BFB;
+      line-height: 1.2;
+    }
+  </style>
 
   <!-- Styles -->
   <link rel="preload" href="assets/css/main.css" as="style">
   <link rel="stylesheet" href="assets/css/main.css">
-  <link rel="preload" href="assets/images/robot-main_opt.webp" as="image" fetchpriority="high">
 
   <script type="text/javascript">
     (function (c, l, a, r, i, t, y) {
@@ -76,10 +88,10 @@
       <div class="vsl-container" id="vsl-facade" onclick="loadStreamableVideo()"
         style="background: #000; position: relative; cursor: pointer; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.2); max-width: 200px; aspect-ratio: 9/16; margin: 0 auto 20px;">
 
-        <!-- Poster prioritário -->
+        <!-- Poster prioritário (Elemento LCP Fixo) -->
         <img src="assets/images/robot-main_opt.webp" alt="Assistir Vídeo Mini Engenheiros" class="vsl-poster"
-          width="200" height="355" loading="eager" fetchpriority="high"
-          style="width: 100%; height: 100%; object-fit: cover; opacity: 0.7; transition: opacity 0.3s;">
+          width="200" height="355" loading="eager" fetchpriority="high" decoding="async"
+          style="width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transition: opacity 0.3s;">
 
         <!-- Botão de Play -->
         <div class="vsl-play-btn"
@@ -468,6 +480,26 @@
       if (dateEl) dateEl.textContent = dateStr;
     }
     updateDate();
+
+    // Scripts de Tracking com Delay para Estabilizar LCP
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        // UTMIFY
+        const utmScript = document.createElement("script");
+        utmScript.src = "https://cdn.utmify.com.br/scripts/utms/latest.js";
+        utmScript.dataset.utmifyPreventXcodSck = true;
+        utmScript.dataset.utmifyPreventSubids = true;
+        document.body.appendChild(utmScript);
+
+        // PIXEL
+        window.pixelId = "69b769e20c8e9d7adb27d4cd";
+        const pixelScript = document.createElement("script");
+        pixelScript.src = "https://cdn.utmify.com.br/scripts/pixel/pixel.js";
+        pixelScript.async = true;
+        pixelScript.defer = true;
+        document.body.appendChild(pixelScript);
+      }, 2500); // 2.5 segundos de delay para garantir renderização total
+    });
 
     document.querySelectorAll('.faq-question').forEach(q => {
       q.addEventListener('click', () => {
