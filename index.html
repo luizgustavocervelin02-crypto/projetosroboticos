@@ -617,7 +617,7 @@
 
       container.innerHTML = `
         <div style="position:relative; width:100%; height:100%;">
-            <iframe src="https://streamable.com/e/ezorkq?autoplay=1&muted=0" 
+            <iframe src="https://streamable.com/e/ezorkq?autoplay=1" 
                     frameborder="0" 
                     width="100%" 
                     height="100%" 
@@ -638,11 +638,6 @@
 
     // Scripts de Tracking com Delay para Estabilizar LCP
     window.addEventListener('load', function () {
-      // Autoplay VSL on entry
-      setTimeout(function () {
-        loadStreamableVideo();
-      }, 1000);
-
       setTimeout(function () {
         // UTMIFY
         const utmScript = document.createElement("script");
