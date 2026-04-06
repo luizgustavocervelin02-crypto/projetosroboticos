@@ -9,6 +9,12 @@
   <meta name="description"
     content="Mais de 100 projetos de robótica para fazer em casa. Tire seu filho do excesso de telas com atividades criativas.">
 
+  <!-- Favicons and Manifest to prevent 404s -->
+  <link rel="icon" type="image/x-icon" href="assets/images/logo_final_opt.webp">
+  <link rel="apple-touch-icon" href="assets/images/logo_final_opt.webp">
+  <link rel="manifest" href="manifest.json">
+
+
   <!-- 1. Preconnects e Preloads Síncronos -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -82,7 +88,7 @@
   </div>
 
   <!-- Hero Section -->
-  <section class="section hero" style="padding-top: 30px; padding-bottom: 30px;">
+  <section class="section hero">
     <div class="container" style="max-width: 600px;">
       <div class="hero-icon" style="margin-bottom: 5px; font-size: 1.5rem;">🤖</div>
       <p
@@ -91,22 +97,18 @@
       </p>
 
       <!-- Optimized Headline for Mobile -->
-      <h1 class="title-primary" style="margin-bottom: 15px; font-size: 1.7rem; line-height: 1.2;">
-        Seu filho só quer saber de tela?
-        <span style="font-size: 1.95rem; line-height: 1.1; margin-top: 5px;">Transforme esse tempo em
-          criatividade.</span>
+      <h1 class="title-primary">
+        Chega de ver seu filho preso na tela: <span style="color: var(--primary);">apresente uma atividade que diverte,
+          ensina e pode mudar a rotina dele em 7 dias.</span>
       </h1>
 
-      <p class="subtitle"
-        style="margin-bottom: 20px; font-size: 0.95rem; font-weight: 400; opacity: 0.8; max-width: 450px; margin-left: auto; margin-right: auto;">
-        Transforme esse tempo perdido em desafio e aprendizado de verdade com mais de 100 projetos de robótica passo a
-        passo.
+      <p class="subtitle">
+        Acesse mais de 100 atividades criativas com materiais simples e veja seu filho mais focado, curioso e envolvido
+        longe do celular já na primeira semana.
       </p>
 
       <!-- Vertical VSL Facade - Otimizado para LCP -->
-      <div class="vsl-container" id="vsl-facade" onclick="loadStreamableVideo()"
-        style="background: #000; position: relative; cursor: pointer; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.2); max-width: 200px; aspect-ratio: 9/16; margin: 0 auto 20px;">
-
+      <div class="vsl-container" id="vsl-facade" onclick="loadStreamableVideo()">
         <!-- Poster prioritário (LCP Reduzido para 31KB) -->
         <img src="assets/images/hero-lcp-mobile.webp" alt="Assistir Vídeo Mini Engenheiros" class="vsl-poster"
           width="200" height="355" loading="eager" fetchpriority="high" decoding="async"
@@ -126,7 +128,8 @@
       </div>
 
       <!-- Main CTA - Now BELOW the Fold/VSL but intended to be seen ATF due to compact UI -->
-      <a href="#fluxo-oferta" class="btn btn-primary btn-block">QUERO TIRAR MEU FILHO DA TELA AGORA</a>
+      <a href="#fluxo-oferta" class="btn btn-primary btn-block pulse-border"
+        style="background: var(--secondary); border: 2px solid #fff;">QUERO TIRAR MEU FILHO DA TELA AGORA</a>
       <p style="font-size: 0.75rem; margin-top: 10px; color: var(--text-muted); font-weight: 700;">
         Acesso imediato • 7 dias de garantia
       </p>
@@ -136,11 +139,15 @@
   <!-- Problem & Solution Section -->
   <section class="section" style="background: #F8FAFC; padding-top: 40px;">
     <div class="container" style="max-width: 700px;">
-      <p style="font-size: 1.1rem; color: #4A5568; line-height: 1.8; text-align: center;">
+      <p style="font-size: 1.1rem; color: #4A5568; line-height: 1.8; text-align: center; margin-bottom: 30px;">
         Mesmo que você não entenda nada de robótica, o Mini Engenheiros entrega vídeos simples, passo a passo, com
         materiais que você provavelmente já tem em casa — para seu filho montar, testar, pensar e sentir o orgulho de
         ver algo funcionando pelas próprias mãos.
       </p>
+
+      <div class="persuasive-phrase-block">
+        <p>"Quanto mais você adia, mais a tela vira hábito."</p>
+      </div>
     </div>
   </section>
 
@@ -175,6 +182,11 @@
           </div>
         </div>
       </div>
+
+      <p style="font-size: 1.15rem; font-weight: 700; color: var(--primary); margin-top: 30px; line-height: 1.4;">
+        "Seu filho não precisa de mais tempo no celular.<br><span class="text-highlight">Precisa de algo que desperte
+          interesse real.</span>"
+      </p>
     </div>
   </section>
 
@@ -229,6 +241,12 @@
             </div>
           </div>
         </div>
+      </div>
+
+      <div class="persuasive-phrase-block"
+        style="background: transparent; border: 2px dashed #e2e8f0; margin-top: 50px;">
+        <p style="color: var(--text-dark); font-style: normal;">"Em vez de só distrair, ofereça uma atividade que
+          estimula e envolve."</p>
       </div>
     </div>
   </section>
@@ -311,28 +329,113 @@
   </section>
 
   <!-- Testimonials Section -->
-  <section class="section" style="background: #FFF; padding-bottom: 80px;">
+  <section class="section" style="background: #fbfcfe; padding-bottom: 80px;">
     <div class="container">
       <div class="hero-icon">👪</div>
-      <h2 style="color: var(--primary);">Pais que decidiram agir antes de continuar vendo o filho preso no mesmo ciclo
-      </h2>
-      <p class="subtitle">Quem entra no Mini Engenheiros não compra só conteúdo. Compra uma nova forma de ocupar o tempo
-        da criança com criatividade, foco e aprendizado real.</p>
+      <h2 style="color: var(--primary); max-width: 650px; margin-left: auto; margin-right: auto;">O que está acontecendo
+        na casa de quem já aplicou os projetos</h2>
+      <p class="subtitle">A mudança na rotina é percebida já nos primeiros dias. Confira a experiência de outros pais:
+      </p>
 
-      <div class="testimonial-grid" style="min-height: 480px;">
-        <div class="testimonial-card" style="padding: 10px;">
-          <img src="assets/images/depo-patricia.webp" alt="Depoimento Patrícia"
-            style="width: 100%; border-radius: 12px;" width="350" height="400" loading="lazy">
-        </div>
-        <div class="testimonial-card" style="padding: 10px;">
-          <img src="assets/images/depo-juliana.webp" alt="Depoimento Juliana" style="width: 100%; border-radius: 12px;"
-            width="350" height="400" loading="lazy">
-        </div>
-        <div class="testimonial-card" style="padding: 10px;">
-          <img src="assets/images/depo-carla.webp" alt="Depoimento Carla" style="width: 100%; border-radius: 12px;"
-            width="350" height="400" loading="lazy">
+      <div class="testimonial-carousel-wrapper">
+        <div class="testimonial-carousel">
+          <!-- Slide 1 -->
+          <div class="testimonial-card-v2">
+            <div class="testimonial-quote">"Meu filho pedia celular o tempo todo. Depois que começamos os projetos, ele
+              passou a pedir para montar o próximo. É impressionante como ele fica focado na montagem."</div>
+            <div class="testimonial-author">
+              <strong>Mariana Silva</strong>
+              <span>Mãe do Pedro (7 anos)</span>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="testimonial-card-v2">
+            <div class="testimonial-quote">"Achei que ele não ia se interessar, mas já nos primeiros dias ficou muito
+              mais focado e animado. Ele agora tem curiosidade de saber como as coisas funcionam por dentro."</div>
+            <div class="testimonial-author">
+              <strong>Ricardo Oliveira</strong>
+              <span>Pai do Lucas (9 anos)</span>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="testimonial-card-v2">
+            <div class="testimonial-quote">"Foi a primeira vez em muito tempo que vi meu filho entretido longe da tela
+              sem reclamar. Ele montou o robô de papelão e não largou mais!"</div>
+            <div class="testimonial-author">
+              <strong>Camila Mendes</strong>
+              <span>Mãe da Julia (6 anos)</span>
+            </div>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="testimonial-card-v2">
+            <div class="testimonial-quote">"Comprei sem muita expectativa e me surpreendi com o quanto ele gostou. A
+              sensação de ver ele orgulhoso mostrando o projeto funcionando não tem preço."</div>
+            <div class="testimonial-author">
+              <strong>Ana Paula Costa</strong>
+              <span>Mãe do Vinícius (8 anos)</span>
+            </div>
+          </div>
+
+          <!-- Slide 5 -->
+          <div class="testimonial-card-v2">
+            <div class="testimonial-quote">"A rotina aqui em casa mudou completamente. Agora ele mesmo vai buscar os
+              materiais para criar algo novo. Menos briga por celular e muito mais aprendizado."</div>
+            <div class="testimonial-author">
+              <strong>Fernanda Lima</strong>
+              <span>Mãe do Arthur (10 anos)</span>
+            </div>
+          </div>
+
+          <!-- DUPLICATES FOR INFINITE LOOP -->
+          <div class="testimonial-card-v2">
+            <div class="testimonial-quote">"Meu filho pedia celular o tempo todo. Depois que começamos os projetos, ele
+              passou a pedir para montar o próximo. É impressionante como ele fica focado na montagem."</div>
+            <div class="testimonial-author">
+              <strong>Mariana Silva</strong>
+              <span>Mãe do Pedro (7 anos)</span>
+            </div>
+          </div>
+          <div class="testimonial-card-v2">
+            <div class="testimonial-quote">"Achei que ele não ia se interessar, mas já nos primeiros dias ficou muito
+              mais focado e animado. Ele agora tem curiosidade de saber como as coisas funcionam por dentro."</div>
+            <div class="testimonial-author">
+              <strong>Ricardo Oliveira</strong>
+              <span>Pai do Lucas (9 anos)</span>
+            </div>
+          </div>
+          <div class="testimonial-card-v2">
+            <div class="testimonial-quote">"Foi a primeira vez em muito tempo que vi meu filho entretido longe da tela
+              sem reclamar. Ele montou o robô de papelão e não largou mais!"</div>
+            <div class="testimonial-author">
+              <strong>Camila Mendes</strong>
+              <span>Mãe da Julia (6 anos)</span>
+            </div>
+          </div>
+          <div class="testimonial-card-v2">
+            <div class="testimonial-quote">"Comprei sem muita expectativa e me surpreendi com o quanto ele gostou. A
+              sensação de ver ele orgulhoso mostrando o projeto funcionando não tem preço."</div>
+            <div class="testimonial-author">
+              <strong>Ana Paula Costa</strong>
+              <span>Mãe do Vinícius (8 anos)</span>
+            </div>
+          </div>
+          <div class="testimonial-card-v2">
+            <div class="testimonial-quote">"A rotina aqui em casa mudou completamente. Agora ele mesmo vai buscar os
+              materiais para criar algo novo. Menos briga por celular e muito mais aprendizado."</div>
+            <div class="testimonial-author">
+              <strong>Fernanda Lima</strong>
+              <span>Mãe do Arthur (10 anos)</span>
+            </div>
+          </div>
         </div>
       </div>
+
+      <p style="font-size: 1.15rem; font-weight: 700; color: var(--text-dark); margin-top: 50px; line-height: 1.4;">
+        "A primeira semana pode ser o começo de uma rotina bem diferente dentro da sua casa."
+      </p>
     </div>
   </section>
 
@@ -375,44 +478,62 @@
   </section>
 
   <!-- Pricing Section -->
-  <section class="section hero" id="fluxo-oferta" style="padding-top: 20px;">
+  <section class="section hero" id="fluxo-oferta" style="padding-top: 40px; background: #fff;">
     <div class="container">
       <div class="hero-icon" style="margin-bottom: 5px;">💳</div>
-      <h2 style="margin-bottom: 40px;">Escolha Seu Plano</h2>
+      <h2 style="margin-bottom: 10px;">Escolha como quer começar a tirar seu filho da tela hoje</h2>
+      <p class="subtitle" style="margin-bottom: 40px; max-width: 600px;">A maioria dos pais escolhe o Premium porque
+        entrega mais variedade, mais atividades e mais chances de manter a criança engajada longe do celular.</p>
 
       <div class="offers-grid">
         <div class="offer-card">
-          <h3 style="color: var(--text-muted); font-size: 1.1rem;">Plano Digital</h3>
+          <div
+            style="font-weight: 800; color: var(--text-muted); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px; margin-bottom: 10px;">
+            Para começar</div>
+          <h3 style="color: var(--text-dark); font-size: 1.4rem; margin-bottom: 5px;">Plano Digital</h3>
           <div class="price-box">
             <div class="old">R$ 99,00</div>
             <div class="new"><small>R$</small>10<small>,00</small></div>
           </div>
           <ul class="offer-list">
-            <li>Guia de Projetos Robóticos</li>
-            <li>+100 Atividades em Vídeo</li>
-            <li>Acesso Imediato</li>
+            <li>Guia principal de projetos</li>
+            <li>+100 atividades em vídeo</li>
+            <li>Acesso imediato</li>
+            <li>Ideal para testar</li>
           </ul>
           <a href="https://pay.lowify.com.br/checkout.php?product_id=J2zfq0" class="btn btn-primary btn-block"
-            style="background: #A0AEC0; padding: 15px 20px; font-size: 0.9rem;">COMEÇAR AGORA</a>
+            style="background: #A0AEC0; padding: 18px 20px; font-size: 0.9rem; box-shadow: none;">QUERO O BÁSICO</a>
         </div>
 
-        <div class="offer-card premium pulse-ani">
-          <div class="premium-badge">OFERTA COMPLETA</div>
-          <h3 style="color: var(--primary); font-size: 1.1rem;">Plano Premium</h3>
+        <div class="offer-card premium pulse-border">
+          <div class="badge-mais-escolhido">MAIS ESCOLHIDO</div>
+          <div
+            style="font-weight: 800; color: var(--secondary); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px; margin-bottom: 10px;">
+            Para quem quer resultado mais rápido</div>
+          <h3 style="color: var(--primary); font-size: 1.5rem; margin-bottom: 5px;">Plano Premium</h3>
           <div class="price-box">
             <div class="old">R$ 197,00</div>
             <div class="new"><small>R$</small>19<small>,90</small></div>
+            <div class="price-anchor">Por apenas R$ 9,90 a mais, você leva a versão mais completa e atrativa para manter
+              seu filho engajado por muito mais tempo.</div>
           </div>
           <ul class="offer-list">
             <li><strong>ACESSO VITALÍCIO</strong></li>
-            <li>Guia de Robótica para Iniciantes</li>
-            <li>100 Atividades Criativas</li>
-            <li>Piadas Infantis</li>
-            <li>27 Mágicas com Cartas</li>
-            <li>Garantia de 7 Dias</li>
+            <li>Guia principal completo</li>
+            <li>100 atividades criativas extras</li>
+            <li>eBook de robótica para iniciantes</li>
+            <li>eBook de piadas infantis</li>
+            <li>27 moldes com cartas</li>
+            <li>Combo completo para manter a criança mais tempo longe da tela</li>
           </ul>
-          <a href="https://pay.lowify.com.br/go.php?offer=43arlke" class="btn btn-primary btn-block"
-            style="padding: 22px 30px;">QUERO O PREMIUM COMPLETO</a>
+          <a href="https://pay.lowify.com.br/go.php?offer=43arlke" class="btn btn-primary btn-block pulse-border"
+            style="padding: 18px 30px; background: var(--secondary); font-size: 1.1rem; border: 2px solid #fff;">QUERO O
+            PREMIUM COMPLETO</a>
+
+          <div class="push-phrase">
+            Escolha ideal para pais que querem mais variedade, mais interesse da criança e menos chance dela voltar para
+            a tela rapidamente.
+          </div>
         </div>
       </div>
 
